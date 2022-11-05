@@ -27,7 +27,7 @@ text-align: justify}
 
 <center>![](atividade_1_files/figure-html/unnamed-chunk-7-1.png){width="550"}</center>
 
-A [**atividade 1**](atividade_1.html) consiste em um exercício de mapas de distribuição a partir de bases abertas, neste caso, com dados do repositório da *International Union for Conservation of Nature* [IUCN](http://www.iucnredlist.org/technical-documents/spatial-data).
+A [**atividade 1**](atividade_1.html) consiste em um exercício de mapas de distribuição a partir de bases abertas, neste caso, com dados do repositório da *International Union for Conservation of Nature* [IUCN](https://www.iucnredlist.org/resources/spatial-data-download).
 
 <br><br>
 
