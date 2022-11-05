@@ -1,0 +1,29 @@
+name: "Macroecologia Marinha"
+navbar:
+  title: "Macroecologia Marinha"
+  left:
+    - text: "Home"
+      href: index.html
+      icon: fas fa-home
+    - text: "Info"
+      href: info.html
+      icon: fas fa-folder
+    - text: "Aulas"
+      href: aulas.html
+      icon: fas fa-book
+    - text: "Atividades"
+      href: atividades.html
+      icon: fas fa-chart-bar
+  right:
+    - text: "GitHub Repo"
+      href: https://github.com/cammcordeiro/macroecologia_02-2022_UENF
+      icon: "fab fa-github"
+      
+output_dir: "."
+output:
+  html_document:
+    theme: default
+    highlight: tango
+    toc_depth: 3
+   # include:
+   #   after_body: footer.html

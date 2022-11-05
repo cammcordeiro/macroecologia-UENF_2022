@@ -1,0 +1,202 @@
+---
+pagetitle: Atividade 2
+output:
+  html_document:
+    pandoc_args: [
+      "--number-offset=0"]
+    toc: yes
+    toc_float: true
+    number_sections: true
+    code_folding: "show"
+---
+
+<style>
+body {
+text-align: justify}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+library(tidyverse)
+
+```
+
+# Atividade 2 {.unnumbered}
+
+## Padrões de diversidade e extração de variáveis marinhas {.unnumbered}
+
+autores: Murilo S. Dias, Juan P. Quimbayo, Thiago Mendes, Mariana Bender, Augusto Flores
+
+<br></br>
+
+Para esta atividade, vamos precisar dos arquivos utilizados e criados na [atividade 1](link). Caso não tenha carregado estes dados ainda, siga os passos indicados na atividade anterior e depois retorne para esta atividade. 
+
+## Preditores climáticos globais
+
+### Baixando, carregando e conferindo os dados marinhos
+
+Agora que já conhecemos como a riqueza de espécies varia ao longo do espaço, precisamos tentar descobrir
+quais são os mecanismos por trás dos padrões espaciais. Para isso, vamos testar o efeito de variáveis
+climáticas na riqueza de espécies em questão por meio de modelos lineares simples. Antes disso, devemos
+recorrer a uma base de dados previamente estabelecida que nos forneça as variáveis climáticas de interesse.
+Para isso, você pode procurar no site do [BioOracle]() e encontrará muitos dos dados de que vai precisar.
+Você também precisará de uma conexão internet para baixar os dados do BioOracle (~ 11MB).
+
+Vamos utilizar o pacote sdmpredictors para obter diretamente estes dados. Assim, nossas análises tanto
+espaciais (SIG quanto estatísticas) ficarão todas dentro do R. Isto facilita a manipulação das planilhas e
+a realização dos modelos. Vamos explorar algumas das variáveis marinhas disponíveis para o mundo.
+Execute as linhas abaixo e gaste um tempo para ler as informações e variáveis disponíveis.
+
+```{r}
+
+# caso não tenha instalado e carregado o pacote
+# install.packages('sdmpredictors') Carregue o package
+library(sdmpredictors)
+# Explore os dados do pacote
+list_datasets()
+
+```
+
+
+
+```{r}
+# Vejam a quantidade de raster disponivel!
+list_layers(c("Bio-ORACLE"))$layer_code
+```
+
+Podemos baixar alguns desses layers diretamente no R e utilizar a informação para as análises.
+
+
+```{r}
+# Carregue alguns layers como de Oxigênio dissolvido e a
+# batimetria marinha media
+bathy <- load_layers(c("BO2_dissoxmean_ss", "BO_bathymean"))
+```
+
+Agora que nós já baixamos os dados e guardamos na forma de um raster chamado bathy, podemos fazer um mapa das variáveis.
+
+```{r}
+plot(bathy$BO2_dissoxmean_ss, main = "Annual Mean Dissolved Oxigen")
+```
+
+```{r}
+plot(bathy$BO_bathymean, main = "Mean Bathimetry")
+```
+
+```{r}
+plot(bathy)
+```
+
+Para facilitar a manipulação, vamos cortar essas variáveis e utilizar somente a extensão do raster utilizado
+no dado de riqueza de peixes-borboleta. Para isso, vamos utilizar a função crop do pacote raster de
+acordo com o dado de riqueza.
+
+
+```{r}
+# Corta o raster de acordo com o mapa de riqueza
+corta_ext <- raster::extent(borb_maps$Richness_Raster)
+bathy_ext <- crop(bathy, corta_ext)
+plot(bathy_ext)
+
+```
+<br><br>
+
+## Checando projeções de dados biológicos e climáticos
+
+Vamos checar se as projeções do arquivo dos peixes e do mar são idênticas (digite projeções cartografia no
+Google para ter uma noção da tarefa). A linha ‘coord. ref. : +proj=longlat +datum=WGS84
++ellps=WGS84 +towgs84=0,0,0’ tem que ser idêntica em ambos; caso contrário você deverá mudar
+as projeções de um ou do outro arquivo. Para conferir a olho nu, faça o mapa de ambos os gráficos na
+mesma janela; se a sobreposição dos mapas não for perfeita, há um problema com a projeção.
+
+
+```{r}
+# projeções de ambos os arquivos
+borb_maps$Richness_Raster
+```
+
+```{r}
+bathy_ext$BO2_dissoxmean_ss
+```
+
+```{r}
+bathy_ext$BO_bathymean
+```
+
+```{r}
+# mapa único
+plot(bathy_ext$BO2_dissoxmean_ss)
+plot(borb_maps, add = T)
+```
+
+```{r}
+# tudo parece OK
+# porém precisamos colocar as projeções com o mesmo nome
+projection(borb_maps$Richness_Raster) <- projection(bathy_ext$BO_bathymean)
+# agora sim tudo idêntico
+borb_maps$Richness_Raster
+```
+
+
+
+```{r}
+bathy_ext$BO2_dissoxmean_ss
+```
+
+```{r}
+bathy_ext$BO_bathymean
+```
+<br></br>
+
+## Extraindo médias climáticas por pixel
+O pixel que criamos para calcular a riqueza de espécies de peixes tem dimensão 3x3 graus, enquanto os pixels das variáveis marinhas são de 0.08333333x0.08333333 graus; ou seja, os dados climáticos são muito mais precisos que borb_maps. A definição do tamanho do pixel da informação biológica depende da tua pergunta, mas, em geral, os macroecólogos utilizam 1x1 grau ou 0.5x0.5 grau. O fato é que para cada célula de mamífero, nós temos muitas células de variáveis marinhas; por isso, vamos extrair a média dos valores marinhas dentro de cada célula de peixes; em seguida, precisamos juntar/fundir ambas informações para termos uma correspondência entre a riqueza de peixes e, por exemplo, a quantidade
+média de oxigênio dissolvido por pixel. Para isso usaremos a função lets.addvar.
+
+
+```{r}
+# extrair e fundir variáveis climáticas aos mamíferos
+borb_mar <- lets.addvar(borb_maps, bathy_ext, fun = mean)
+# veja um pedaço da matriz resultante
+borb_mar[1:5, c(1:5, 25:27)]
+```
+
+
+## Calculando relações simples entre riqueza e os preditores
+### Calculando a riqueza de espécies
+
+Com a matriz final já esta praticamente pronta, nos só precisamos incluir uma nova coluna onde
+calcularemos a riqueza de espécies. Para isso, basta somar a ocorrência de todas as espécies ao longo
+das linhas desta matriz (exceto as duas primeiras e as duas últimas que não possuem informação de
+ocorrência) e teremos ao final a riqueza de espécies.
+
+
+```{r}
+# Precisamos transformar a matriz em um data.frame para
+# facilitar
+borb_mar <- as.data.frame(borb_mar)
+# Calcular a riqueza de espécies
+borb_mar$riq <- rowSums(borb_mar[, -c(1:2, 26:27)])
+```
+
+```{r}
+plot(riq ~ BO_bathymean_mean, borb_mar)
+```
+
+Qual a relação entre a riqueza de espécies e oxigênio dissolvido?
+
+```{r}
+plot(riq ~ BO2_dissoxmean_ss_mean, borb_mar)
+```
+
+## Bibliography
+1.    Vilela, B. & Villalobos, F. (2015). letsR: A new r package for data handling and analysis in macroecology.
+Methods in Ecology and Evolution, 6, 1229–1234.
+
+
+USAR SEASCAPE X COOCORRENCIA X DIVERSIDADE
+
+https://ggplot2-book.org/maps.html
+https://maevolab.mx/projects/interactions/
+https://gift.uni-goettingen.de/mcmmb/
+http://fabro.github.io/EAE_UFS_2019/exercicios_occurrences_geographic_ranges.html

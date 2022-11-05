@@ -1,0 +1,89 @@
+---
+pagetitle: Atividades
+output:
+  html_document:
+    pandoc_args: [
+      "--number-offset=0"]
+    toc: yes
+    toc_float: true
+    number_sections: true
+    code_folding: "show"
+    theme: default
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{=html}
+<style>
+body {
+text-align: justify}
+</style>
+```
+## **Atividade 1**  {.unnumbered}
+
+
+#### *Exercícios de cálculo de índices de diversidade com dados de bases abertas*  {.unnumbered}
+
+<center>![](atividade_1_files/figure-html/unnamed-chunk-7-1.png){width="550"}</center>
+
+A [**atividade 1**](atividade1.html) consiste em um exercício de mapas de distribuição a partir de bases abertas, neste caso, com dados do repositório da *International Union for Conservation of Nature* [IUCN](http://www.iucnredlist.org/technical-documents/spatial-data).
+
+<br><br>
+
+------------------------------------------------------------------------
+
+## **Atividade 2** {.unnumbered}
+
+#### *Exercícios de verificação de padrões de distribuição de espécies* {.unnumbered}
+
+<center><img src="figs/git_4.png" style="width:50%"/></center>
+
+
+
+A [**atividade 2**](atividade2.html) 
+.
+<br><br>
+
+------------------------------------------------------------------------
+
+## **Atividade 3** {.unnumbered}
+
+#### *Exercícios de redes de interação* {.unnumbered}
+
+<center><img src="atividade3_files/figure-html/unnamed-chunk-13-1.png" style="width:70%"/></center>
+
+<br><br>
+
+
+A [**atividade 3**](atividade3.html) .
+<br><br>
+
+------------------------------------------------------------------------
+
+## **Atividade 4** {.unnumbered}
+
+#### *Exercícios de cálculo de indicadores de diversidade funcional* {.unnumbered}
+
+<center><img src="figs/rmarkdown_icon.png" style="width:30%"/></center>
+
+<br><br>
+
+A [**atividade 4**](atividade4.html).
+<br><br>
+
+------------------------------------------------------------------------
+
+## **Atividade 5** {.unnumbered}
+
+#### *Exercícios de checagem de qualidade, padronização e roteiro reprodutível de aquisição e análise de dados macroecológicos* {.unnumbered}
+
+<center><img src="images/data_cycle.png" style="width:50%"/></center>
+
+<br><br>
+
+A [**atividade 5**](atividade5.html) finaliza o processo de ferramentas básicas de compartilhamento e reprodutibilidade de dados científicos.
+Nesta atividade, os participantes irão tranformar as rotinas criadas nas atividades anteriores em um website.
+<br><br>
+
+------------------------------------------------------------------------

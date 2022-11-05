@@ -1,0 +1,75 @@
+---
+pagetitle: Aulas
+output: 
+  html_document:
+    theme: default
+    highlight: tango
+---
+<style>
+body {
+text-align: justify}
+</style>
+
+
+# Aulas
+
+Todo o material das aulas pode ser acessados no cronograma baixo clicando-se os links correspondentes:
+
+***
+
+### Cronograma
+
+
+**Aula 1 - Segunda-feira (07/11 => 8:30 – 12:30 / 14:00 - 18:00)**
+
+-   Macroecologia: histórico e conceitos
+
+-   Definições de medidas de diversidade
+
+-   Exercícios de cálculo de índices de diversidade com dados de bases abertas
+
+
+**Aula 2 - Terça-feira (08/11 => 8:30 – 12:30 / 14:00 - 18:00)**
+
+-   Padrões globais de distribuição (gradiente latitudinal, comparação entre riqueza local e regional)
+
+-   Seminário 1
+
+-   Exercícios de verificação de padrões de distribuição de espécies
+
+
+**Aula 3 - Quarta-feira (09/11 => 8:30 – 12:30 / 14:00 - 18:00)**
+
+-   Teoria de biogeografia de ilhas
+
+-   Exercícios de redes de interação
+
+
+**Aula 4 - Segunda-feira (28/11 => 8:30 – 12:30 / 14:00 - 18:00)**
+
+-   Barreiras biogeográficas
+
+-   Centros de diversidade e endemismo
+
+
+**Aula 5 - Terça-feira (29/11 => 8:30 – 12:30 / 14:00 - 18:00)**
+
+-   Diversidade filogenética e funcional
+
+-   Exercícios de cálculo de indicadores de diversidade funcional
+
+-   Seminário 3
+
+
+**Aula 6 - Quarta-feira (30/11 => 8:30 – 12:30 / 14:00 - 18:00)**
+
+-   Macroecologia e conservação
+
+-   Seminário 4
+
+-   Exercícios de checagem de qualidade, padronização e roteiro reprodutível de aquisição e análise de dados macroecológicos
+
+-   Considerações finais da disciplina
+
+
+***

@@ -1,0 +1,31 @@
+---
+output: 
+  html_document:
+    theme: default
+    highlight: tango
+---
+
+```{=html}
+<style>
+body {
+text-align: justify}
+</style>
+```
+|                                                           |                                                                 |     |
+|:------------------------|--------------------:|---------------------------|
+| [![](images/logo_uenf.jpeg){width="300"}](https://uenf.br/) | [![](images/logo_lca.png){width="227"}](https://uenf.br/cbb/lca/) |     |
+
+## Macroecologia Marinha
+
+> UENF - CBB - Laboratório de Ciências Ambientais (LCA)
+>
+> Professores: Cesar A. M. M. Cordeiro, Thiago C. Mendes (UFF) e Juan P. Quimbayo (CEBIMar/USP)
+
+------------------------------------------------------------------------
+
+### Sobre o curso
+
+Neste curso, serão exploradas as teorias evolutivas e ecológicas da diversidade, ao mesmo tempo em que serão apresentados os principais métodos no estudo de padrões de diversidade sob diferentes ângulos. As questões exploradas na disciplina incluem a ocorrência diferencial de espécies ao longo de biomas e habitats, a relação entre os padrões de distribuição geográfica de diferentes grupos taxonômicos, suas histórias evolutivas, limitantes ambientais e limites fisiológicos, relações espécie-área e diversidade-produtividade, além de interações com forçantes antrópicas que possam explicar a realidade observada. A avaliação consistirá em um trabalho final (projeto investigativo autoral) confeccionado como um roteiro reprodutível de aquisição, polimento e análise de dados em escala, no mínimo regional, com dados públicos contemplando padrões ecológicos ou antrópicos. Adicionalmente, todas as práticas realizadas serão acompanhadas pela entrega de um relatório contendo a rotina comentada, utilizada nas práticas, adicionada de observações dos participantes. Finalmente, serão apresentados seminários baseados em artigos científicos indicados na leitura complementar. Pré-requisitos: Espera-se que os estudantes matriculados tenham familiaridade com a linguagem R e tenham noções de estatística, biodiversidade, ecologia de comunidades ou ecossistemas, biogeografia ou evolução.
+
+**Pré-requisitos**: Espera-se que os estudantes matriculados tenham familiaridade com a linguagem R. <br><br>
+

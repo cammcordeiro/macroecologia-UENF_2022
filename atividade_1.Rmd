@@ -1,0 +1,251 @@
+---
+pagetitle: Atividade 1
+output:
+  html_document:
+    pandoc_args: [
+      "--number-offset=0"]
+    toc: yes
+    toc_float: true
+    number_sections: true
+    code_folding: "show"
+---
+
+<style>
+body {
+text-align: justify}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+library(tidyverse)
+
+```
+
+# Atividade 1 {.unnumbered}
+
+<br></br>
+
+## Primeiros passos
+
+### Download e manipulação de dados geográficos
+
+#### Obtendo dados e criando mapas {.unnumbered}
+
+##### Instalando pacotes {.unnumbered}
+
+Para realizarmos esta pratica, você precisará instalar alguns pacotes. Utilize o código abaixo para instalar os pacotes devtools, maptools e letsR. Pode ser que demore um pouco, mas se vocês tiver uma conexão internet o R vai baixar e instalar todo o necessário. Copie e cole os seguintes códigos em no script ou terminal.
+
+
+```{r}
+# 
+# # instalando pacotes
+# install.packages("devtools")
+# install.packages("rgdal")
+# install.packages("maptools")
+# install.packages("maps")
+# library(devtools)
+# install_github("macroecology/letsR", dependencies = T)
+# # install.packages('letsR')#o pacote do repositorio Git é o
+# # mais atual
+
+# carregando pacotes usados
+library(letsR)
+library(maptools)
+library(maps)
+library(rgdal)
+
+```
+------------------------------------------------------------------------
+
+## Dados de peixes recifais
+### Onde encontrar os dados
+
+Muitos são os repositórios de dados espaciais. Dados geográficos para os organismos mais comumente acessados (e.g., mamíferos, anuros, etc) estão disponíveis no seguinte link: *http://www.iucnredlist.org/technical-documents/spatial-data*. Verifique as possibilidades disponíveis.
+
+Nós utilizaremos aqui os dados de peixes borboletas (Chaetodontidae) do Novo Mundo pois são poucas as espécies e os dados são leves o suficientes para uma aula prática rápida. Se quiser testar algo mais real, tente baixar os dados de mamíferos (cerca de 350Mb!) em casa e utilizá-lo no lugar dos peixes Mas antes, tenha certeza que teu computador é potente o suficiente para tratar tamanho volume de dados, pois você poderá perder algumas horas (ou até dias) para executar os exercícios descritos abaixo.
+
+### Preparando e baixando o arquivo
+
+Inicialmente, precisamos criar uma pasta no diretório de trabalho que receberá o arquivo depois de terminado o download. Para criar a pasta, fazer o download do arquivo, descomprimir e finalmente carrega-lo no R será preciso executar os seguintes códigos.
+
+```{r}
+# criar pasta
+dir.create(file.path(getwd(), "/data"))
+
+```
+
+### Exemplo baixando dados da IUCN (CASO PRECISEM!!!)
+Em seguida, defininos o link para download dos dados (de acordo com o endereço registrado no site da IUCN), extraímos o arquivo zip e carregamos o arquivo .shp para o R.
+
+```{r}
+
+# URL <- "http://bit.ly/1HSxNlK" # dados IUCN cecilias
+# download.file(URL, destfile = "data/GYMNOPHIONA.zip")
+# unzip("data/GYMNOPHIONA.zip", exdir = "data/")
+
+# se quiser outros dados, é só mudar o link e o nome do
+# arquivo URL <- 'http://bit.ly/1JTrFLL'#dadosIUCN
+# Anura(~300Mb)
+# download.file(URL,destfile='data/anura.zip')
+# unzip('data/anura.zip',exdir = 'data/')
+
+# rm(URL) #remove o link da área de trabalho
+
+```
+
+Agora, verifique se os dados de cecílias estão exatamente dentro da pasta /data que acabamos de criar. Se tudo estiver correto, você deverá ver pelo menos oito arquivos com o mesmo nome, porém extensões diferentes (.shp, .shx, .prj, etc). Se quiser saber mais sobre isso, você precisa procurar e ler sobre Sistema de Informação Geográficas (SIG ou GIS em inglês) e Cartografia. Muito do que é feito em Macroecologia é baseado em dados tipo SIG. Se puder, aprenda estas ferramentas de SIG pois este é um campo em franco desenvolvimento.
+
+
+### Distribuição das espécies peixes borboletas
+
+Para importar os dados e ver o que tem dentro deles, faça:
+
+```{r}
+
+# Importanto o shapefile
+borb <- readOGR(dsn = "data/Chaetodontidae_NewWorld.shp")
+
+```
+
+
+```{r}
+
+# visualizando o conteúdo dos dados
+head(borb@data)
+
+```
+
+Este último comando te permitirá ver tudo todos os descritores (i.e., colunas) dentro do arquivo .shp.
+Agora precisaremos fazer uma mapa para visualizar o que há dentro deste objeto borb que acabamos de criar. Utilizaremos algumas linhas de código a mais para fazer um mapa colorido para melhorar a compreensão dos dados. Utilizaremos a coluna referente ao nome científico de cada uma das espécies (i.e. binomial) para criar cores aleatórias e utilizá-las no nosso mapa. O parâmetro alfa dentro da função rainbow faz referência ao nível de transparência de cada cor; assim, poderemos ver polígonos mesmo que eles estejam cobertos por outros polígonos.
+
+
+```{r}
+
+## usando cores aleatórias nos nossos mapas
+colors <- rainbow(borb@data$binomial %>% 
+                    unique() %>% 
+                    length(), alpha = 0.5)
+
+position <- match(borb@data$binomial, unique(borb@data$binomial))
+
+colors <- colors[position]
+
+## Plot call
+map("world", xlim = c(-150, 40))
+box()
+plot(borb, col = colors, lty = 0, add = T)
+
+
+```
+
+Cada cor se refere à um polígono da área de distribuição de cada espécie.
+
+<br></br>
+
+# Riqueza de espécies na América
+A manipulação e tratamento de dados espaciais tipo .shp exigem um profundo conhecimento sobre os dados e a forma como eles são armazenados. Se quiserem saber mais sobre como utilizar o R para tratar este tipo de dados, recorram a livros como *Applied spatial data analysis with R* (Bivand et al. 2013) ou *An introduction to R for spatial analysis and mapping* (Brunsdown & Comber 2015). Felizmente, existe um pacote chamado `letsR` (Vilela & Villalobos 2015) que possui uma grande variedade de ferramentas úteis para macroecólogos. Nós já instalamos e carregamos este pacote no início da aula e podemos utilizar suas funções para fazer mais alguns mapas.
+
+Vamos utilizar a função lets.presab para criar um raster (i.e., arquivo tipo imagem que armazena informações em cada um de seus pixels; digite ‘arquivo raster’ no Google para mais detalhes) sumarizando a riqueza de espécie de peixes borboletas na América do Sul. Neste caso, a resolução do nosso arquivo de raster será de 3x3 graus (i.e., cada pixel ou célula tem tamanho 3 por 3 graus); mude a resol para valores 4 ou 5 e você verá a diferença na figura final. Já o argumento cover garante que somente pixels que tenham mais de 1% de sua área sobre do continente seja mantido (mude estes valores e veja a
+diferença no mapa resultante). Como nosso objetivo é uma mapa da América, as coordenadas limites foram definidas para realizar o exercício somente ao longo da extensão desejada (argumentos xmn, xmx, ymn e ymx da função lets.presab).
+
+
+
+```{r}
+borb_maps <- lets.presab(borb, resol = 3, 
+                         xmn = -150, xmx = 40, # America range
+                         ymn = -38, ymx = 45, # America range
+                         cover = 0.01)
+
+plot(borb_maps, axes = F, main = "Riqueza de Peixes Borboletas")
+
+```
+
+
+Aproveite e use o seguinte código para ver o que há no objeto criado pela função.
+
+
+```{r}
+
+# see what we have
+summary(borb_maps)
+
+```
+
+
+```{r}
+
+str(borb_maps)
+
+```
+
+E se precisarmos criar somente uma matrix para saber qual espécie ocorre em cada uma das células do raster, você pode acessar a matriz direto do objeto borb_maps ou refazer a mesma funçao pedindo como resultado somente a matrix de presença/ausência (*show.matrix* = TRUE dentro da função  `lets.presab`; digite `?lets.presab` no console do R e leia o help desta função e seus argumentos).
+
+```{r}
+
+# Presence/absence matrix
+borb_pa <- borb_maps$Presence_and_Absence_Matrix
+dim(borb_pa)
+
+```
+
+
+```{r}
+# species names
+colnames(borb_pa)
+```
+
+
+```{r}
+# presence/absence matrix
+borb_pa[1:5, 1:5]
+```
+
+
+```{r}
+# Position of cells
+plot(borb_pa[, 1:2], asp = 1)
+
+```
+
+
+```{r}
+# species occurence
+n <- dim(borb_pa)[2]
+occ <- colSums(borb_pa[, c(3:n)])
+occ
+
+```
+
+```{r}
+
+par(mfrow = c(1,2))
+
+hist(occ, main = "Ocorrências por pixel", las=1)
+
+hist(log(occ + 1), main = "Ocorrências por pixel (log)", las=1)
+
+```
+
+Se quisermos calcular a área de distribuição de cada uma das espécies, é só utilizar a seguinte função. Porém, como ela retorna o valor em m2, precisamos converser em km2 dividindo por 1000000 (1000m x 1000m).
+
+```{r}
+# range size in m2
+range_gym <- lets.rangesize(borb_maps, units = "squaremeter")
+# transformar m2 para km2
+range_gym <- range_gym/1e+06
+range_gym
+
+```
+
+<br></br>
+
+# Referências
+
+Autores: Murilo S. Dias, Juan P. Quimbayo, Thiago Mendes, Mariana Bender, Augusto Flores. Adaptado por: Cesar Cordeiro
+
+-   Bivand RS, Pebesma E, Gómez-Rubio V (2013) *Applied spatial data analysis with R*. Springer New York, NY. DOI: 10.1007/978-1-4614-7618-4.
+-   Brunsdown C, Comber L (2015) *An introduction to R for spatial analysis and mapping*. SAGE Publications Ltd.
+-   Vilela, B. & Villalobos, F. (2015). **letsR*: A new r package for data handling and analysis in macroecology. *Methods in Ecology and Evolution*, 6, 1229–1234.
+
+***
