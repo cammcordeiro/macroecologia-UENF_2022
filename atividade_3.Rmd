@@ -28,31 +28,85 @@ Para a atividade 4, partiremos dos primeiros passos da atividade 1, mas com algu
 
 ```{r}
 
-# library(letsR)
-# library(tidyverse)
-# 
-# # Importanto o shapefile
-# borb <- rgdal::readOGR(dsn = "data/Chaetodontidae_NewWorld.shp")
-# 
-# # Criando raster
-# borb_maps <- lets.presab(borb, resol = 3, 
-#                          xmn = borb@bbox[1], xmx = borb@bbox[3], # America range
-#                          ymn = borb@bbox[2], ymx = borb@bbox[4], # America range
-#                          cover = 0.01,
-#                          remove.cells = FALSE)
-# 
-# # Criando matrix de presença e ausência
-# borb_pa <- borb_maps$Presence_and_Absence_Matrix
+library(letsR)
+library(tidyverse)
+library(rgdal)
+
+# Importanto o shapefile
+borb <- rgdal::readOGR(dsn = "data/Chaetodontidae_NewWorld.shp")
+
+# Criando raster
+borb_maps <- lets.presab(borb, resol = 3, 
+                         cover = 0.01)
+
+# Criando matrix de presença e ausência
+borb_pa <- borb_maps$Presence_and_Absence_Matrix
+
+```
+
+```{r}
+#carregando pacotes usados
+library(maptools)
+library(maps)
+library(rgdal)
+library(vegan)
+
+```
+
+### Barreiras biogeograficas
+
+```{r}
+
+#criar uma tabela com dados de presenca/ausencia das especies
+pa <-as.data.frame(borb_maps$Presence_and_Absence_Matrix[,-c(1:2)])
+
+#checar os nomes para ver se contem somente as especies
+names(pa)
+
+```
+
+```{r}
+
+# Calculando dissimilaridade na composição de espécies
+library(betapart)
+beta.sim <- betapart::beta.pair(pa,index.family="sorensen")$beta.sim
 
 ```
 
 
+```{r}
+###Visualizando a composição de especies por meio de um NMDS
+library(vegan)
+
+points <- vegan::metaMDS(beta.sim, k=2, autotransform=F, trymax=5)$points
+```
+
+
+```{r}
+#Atribuindo cores de acordo com a composicao de especies (escala RedGreenBlue)
+library(recluster)
+
+cores <- recluster::recluster.col(points)
+RGB <- data.frame(sites=rownames(cores),RGB=rgb(cores[,3:5],maxColorValue=255))
+
+recluster::recluster.plot.col(cores,cex=5,cext=1)
+```
+
+
+```{r}
+
+library(maps)
+#criando um novo objeto contendo o mapa da composicao
+mapa_comp <- borb_maps$Richness_Raster
+#Atribuindo ao mapa as cores RGB
+mapa_comp[mapa_comp[]==0]<-NA
+mapa_comp[mapa_comp[]!=0]<-RGB$RGB
+
+maps::map("world")
+plot(mapa_comp,add=TRUE,axis=FALSE)
+
+```
+
 
 ## Bibliography
--   Ives AR, Helmus MR (2010). Phylogenetic metrics of community similarity. The American
-Naturalist, 176, E128–E142.
--   Leprieur F, Colosio S, Descombes P, Parravicini V, Kulbicki M, Cowman PF et al. (2015) Historical and contemporary determinants of global phylogenetic structure in tropical reef fish faunas. Ecography, 39, 825–835.
--   Miller ET, Farine DR, Trisos CH (2016) Phylogenetic community structure metrics and null models: A review with new methods and software. Ecography, 40, 461–477.
-- Mouquet N, Devictor V, Meynard CN, Munoz F, Bersier L-F, Chave J et al. (2012) Ecophylogenetics: Advances and perspectives. Biological Reviews, 87, 769–785.
--   Tucker CM, Cadotte MW, Carvalho SB, Davies TJ, Ferrier S, Fritz SA et al. (2016) A guide to phylogenetic metrics for conservation, community ecology and macroecology. Biological Reviews, 92, 698–715.
 -   Vilela B, Villalobos F (2015) letsR: A new r package for data handling and analysis in macroecology. Methods in Ecology and Evolution, 6, 1229–1234.

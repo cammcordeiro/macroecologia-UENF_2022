@@ -490,41 +490,96 @@ recifais</h2>
 mas com algumas modificações na escala do mapa (global desta vez). Para
 tal, bastar realizar estes primeiros passos rodando este
 <code>chunck</code> de código abaixo.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(letsR)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(tidyverse)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # Importanto o shapefile</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># borb &lt;- rgdal::readOGR(dsn = &quot;data/Chaetodontidae_NewWorld.shp&quot;)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># # Criando raster</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># borb_maps &lt;- lets.presab(borb, resol = 3, </span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#                          xmn = borb@bbox[1], xmx = borb@bbox[3], # America range</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#                          ymn = borb@bbox[2], ymx = borb@bbox[4], # America range</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                          cover = 0.01,</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#                          remove.cells = FALSE)</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># # Criando matrix de presença e ausência</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># borb_pa &lt;- borb_maps$Presence_and_Absence_Matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(letsR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Importanto o shapefile</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>borb <span class="ot">&lt;-</span> rgdal<span class="sc">::</span><span class="fu">readOGR</span>(<span class="at">dsn =</span> <span class="st">&quot;data/Chaetodontidae_NewWorld.shp&quot;</span>)</span></code></pre></div>
+<pre><code>## OGR data source with driver: ESRI Shapefile 
+## Source: &quot;/Users/cesarcordeiro/git/macroecologia-UENF_2022/data/Chaetodontidae_NewWorld.shp&quot;, layer: &quot;Chaetodontidae_NewWorld&quot;
+## with 29 features
+## It has 27 fields
+## Integer64 fields read as strings:  id_no</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando raster</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>borb_maps <span class="ot">&lt;-</span> <span class="fu">lets.presab</span>(borb, <span class="at">resol =</span> <span class="dv">3</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">cover =</span> <span class="fl">0.01</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando matrix de presença e ausência</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>borb_pa <span class="ot">&lt;-</span> borb_maps<span class="sc">$</span>Presence_and_Absence_Matrix</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#carregando pacotes usados</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maptools)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code></pre></div>
+<div id="barreiras-biogeograficas" class="section level3"
+number="0.1.1">
+<h3><span class="header-section-number">3.1.1</span> Barreiras
+biogeograficas</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#criar uma tabela com dados de presenca/ausencia das especies</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pa <span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(borb_maps<span class="sc">$</span>Presence_and_Absence_Matrix[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#checar os nomes para ver se contem somente as especies</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pa)</span></code></pre></div>
+<pre><code>##  [1] &quot;Amphichaetodon melbae&quot;         &quot;Chaetodon auriga&quot;             
+##  [3] &quot;Chaetodon capistratus&quot;         &quot;Chaetodon flavirostris&quot;       
+##  [5] &quot;Chaetodon hoefleri&quot;            &quot;Chaetodon humeralis&quot;          
+##  [7] &quot;Chaetodon litus&quot;               &quot;Chaetodon lunula&quot;             
+##  [9] &quot;Chaetodon mertensii&quot;           &quot;Chaetodon meyeri&quot;             
+## [11] &quot;Chaetodon ocellatus&quot;           &quot;Chaetodon pelewensis&quot;         
+## [13] &quot;Chaetodon robustus&quot;            &quot;Chaetodon sanctaehelenae&quot;     
+## [15] &quot;Chaetodon sedentarius&quot;         &quot;Chaetodon striatus&quot;           
+## [17] &quot;Chaetodon unimaculatus&quot;        &quot;Forcipiger flavissimus&quot;       
+## [19] &quot;Hemitaurichthys multispinosus&quot; &quot;Johnrandallia nigrirostris&quot;   
+## [21] &quot;Prognathodes aculeatus&quot;        &quot;Prognathodes aya&quot;             
+## [23] &quot;Prognathodes brasiliensis&quot;     &quot;Prognathodes carlhubbsi&quot;      
+## [25] &quot;Prognathodes dichrous&quot;         &quot;Prognathodes falcifer&quot;        
+## [27] &quot;Prognathodes guyanensis&quot;       &quot;Prognathodes marcellae&quot;       
+## [29] &quot;Prognathodes obliquus&quot;</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculando dissimilaridade na composição de espécies</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(betapart)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>beta.sim <span class="ot">&lt;-</span> betapart<span class="sc">::</span><span class="fu">beta.pair</span>(pa,<span class="at">index.family=</span><span class="st">&quot;sorensen&quot;</span>)<span class="sc">$</span>beta.sim</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">###Visualizando a composição de especies por meio de um NMDS</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>points <span class="ot">&lt;-</span> vegan<span class="sc">::</span><span class="fu">metaMDS</span>(beta.sim, <span class="at">k=</span><span class="dv">2</span>, <span class="at">autotransform=</span>F, <span class="at">trymax=</span><span class="dv">5</span>)<span class="sc">$</span>points</span></code></pre></div>
+<pre><code>## Run 0 stress 0.000621963 
+## Run 1 stress 0.0003799572 
+## ... New best solution
+## ... Procrustes: rmse 0.04672703  max resid 0.1716446 
+## Run 2 stress 0.0005227159 
+## ... Procrustes: rmse 0.04425947  max resid 0.1838224 
+## Run 3 stress 0.0004978659 
+## ... Procrustes: rmse 0.03864805  max resid 0.2807707 
+## Run 4 stress 0.0006408195 
+## ... Procrustes: rmse 0.05039006  max resid 0.4413699 
+## Run 5 stress 0.0004080444 
+## ... Procrustes: rmse 0.05120458  max resid 0.4908674 
+## *** No convergence -- monoMDS stopping criteria:
+##      5: scale factor of the gradient &lt; sfgrmin</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Atribuindo cores de acordo com a composicao de especies (escala RedGreenBlue)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(recluster)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> recluster<span class="sc">::</span><span class="fu">recluster.col</span>(points)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>RGB <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sites=</span><span class="fu">rownames</span>(cores),<span class="at">RGB=</span><span class="fu">rgb</span>(cores[,<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>],<span class="at">maxColorValue=</span><span class="dv">255</span>))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>recluster<span class="sc">::</span><span class="fu">recluster.plot.col</span>(cores,<span class="at">cex=</span><span class="dv">5</span>,<span class="at">cext=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="atividade_3_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#criando um novo objeto contendo o mapa da composicao</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>mapa_comp <span class="ot">&lt;-</span> borb_maps<span class="sc">$</span>Richness_Raster</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Atribuindo ao mapa as cores RGB</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>mapa_comp[mapa_comp[]<span class="sc">==</span><span class="dv">0</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>mapa_comp[mapa_comp[]<span class="sc">!=</span><span class="dv">0</span>]<span class="ot">&lt;-</span>RGB<span class="sc">$</span>RGB</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>maps<span class="sc">::</span><span class="fu">map</span>(<span class="st">&quot;world&quot;</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mapa_comp,<span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">axis=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="atividade_3_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
 </div>
 <div id="bibliography" class="section level2" number="0.2">
 <h2><span class="header-section-number">3.2</span> Bibliography</h2>
 <ul>
-<li>Ives AR, Helmus MR (2010). Phylogenetic metrics of community
-similarity. The American Naturalist, 176, E128–E142.</li>
-<li>Leprieur F, Colosio S, Descombes P, Parravicini V, Kulbicki M,
-Cowman PF et al. (2015) Historical and contemporary determinants of
-global phylogenetic structure in tropical reef fish faunas. Ecography,
-39, 825–835.</li>
-<li>Miller ET, Farine DR, Trisos CH (2016) Phylogenetic community
-structure metrics and null models: A review with new methods and
-software. Ecography, 40, 461–477.</li>
-<li>Mouquet N, Devictor V, Meynard CN, Munoz F, Bersier L-F, Chave J et
-al. (2012) Ecophylogenetics: Advances and perspectives. Biological
-Reviews, 87, 769–785.</li>
-<li>Tucker CM, Cadotte MW, Carvalho SB, Davies TJ, Ferrier S, Fritz SA
-et al. (2016) A guide to phylogenetic metrics for conservation,
-community ecology and macroecology. Biological Reviews, 92,
-698–715.</li>
 <li>Vilela B, Villalobos F (2015) letsR: A new r package for data
 handling and analysis in macroecology. Methods in Ecology and Evolution,
 6, 1229–1234.</li>
