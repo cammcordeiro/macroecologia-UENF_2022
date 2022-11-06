@@ -109,4 +109,7 @@ plot(mapa_comp,add=TRUE,axis=FALSE)
 
 
 ## Bibliography
+
+Autores: Murilo S. Dias, Juan P. Quimbayo, Thiago Mendes, Mariana Bender, Augusto Flores. Adaptado por: Cesar Cordeiro
+
 -   Vilela B, Villalobos F (2015) letsR: A new r package for data handling and analysis in macroecology. Methods in Ecology and Evolution, 6, 1229–1234.

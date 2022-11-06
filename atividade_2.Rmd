@@ -26,13 +26,11 @@ library(tidyverse)
 
 ## Padrões de diversidade e extração de variáveis marinhas {.unnumbered}
 
-autores: Murilo S. Dias, Juan P. Quimbayo, Thiago Mendes, Mariana Bender, Augusto Flores
-
 <br></br>
 
 ## Dados de peixes recifais
 Para esta atividade, vamos precisar dos arquivos utilizados e criados na [atividade 1](atividade_1.html).
-Para a atividade 4, partiremos dos primeiros passos da atividade 1. Para tal, bastar rodar este `chunck` de código abaixo. Caso já esteja com este arquivo preparado no ambiente do RStudio, ignore este passo.
+Para a atividade 2, partiremos dos primeiros passos da atividade 1. Para tal, bastar rodar este `chunck` de código abaixo. Caso já esteja com este arquivo preparado no ambiente do RStudio, ignore este passo.
 
 ```{r}
 
@@ -44,7 +42,7 @@ borb <- rgdal::readOGR(dsn = "data/Chaetodontidae_NewWorld.shp")
 
 # Criando raster
 borb_maps <- lets.presab(borb, resol = 3, 
-                         xmn = -150, xmx = 40, # America range
+                         xmn = -130, xmx = 40, # America range
                          ymn = -38, ymx = 45, # America range
                          cover = 0.01)
 
@@ -65,6 +63,7 @@ Execute as linhas abaixo e gaste um tempo para ler as informações e variáveis
 # caso não tenha instalado e carregado o pacote
 # install.packages('sdmpredictors') Carregue o package
 library(sdmpredictors)
+
 # Explore os dados do pacote
 list_datasets()
 
@@ -77,16 +76,19 @@ list_datasets()
 list_layers(c("Bio-ORACLE"))$layer_code
 ```
 
-Podemos baixar alguns desses layers diretamente no R e utilizar a informação para as análises.
+Podemos baixar alguns desses *layers* diretamente no R e utilizar a informação para as análises.
 
 
 ```{r}
-# Carregue alguns layers como de Oxigênio dissolvido e a
-# batimetria marinha media
+# Carregue alguns layers como de oxigênio dissolvido e a
+# batimetria marinha média
+
+options(sdmpredictors_datadir = "data/")
+
 bathy <- load_layers(c("BO2_dissoxmean_ss", "BO_bathymean"))
 ```
 
-Agora que nós já baixamos os dados e guardamos na forma de um raster chamado bathy, podemos fazer um mapa das variáveis.
+Agora que nós já baixamos os dados e guardamos na forma de um raster chamado **bathy**, podemos fazer um mapa das variáveis.
 
 ```{r}
 plot(bathy$BO2_dissoxmean_ss, main = "Annual Mean Dissolved Oxigen")
@@ -100,9 +102,7 @@ plot(bathy$BO_bathymean, main = "Mean Bathimetry")
 plot(bathy)
 ```
 
-Para facilitar a manipulação, vamos cortar essas variáveis e utilizar somente a extensão do raster utilizado
-no dado de riqueza de peixes-borboleta. Para isso, vamos utilizar a função crop do pacote raster de
-acordo com o dado de riqueza.
+Para facilitar a manipulação, vamos cortar essas variáveis e utilizar somente a extensão do raster utilizado no dado de riqueza de peixes-borboleta. Para isso, vamos utilizar a função crop do pacote raster de acordo com o dado de riqueza.
 
 
 ```{r}
@@ -116,11 +116,7 @@ plot(bathy_ext)
 
 ## Checando projeções de dados biológicos e climáticos
 
-Vamos checar se as projeções do arquivo dos peixes e do mar são idênticas (digite projeções cartografia no
-Google para ter uma noção da tarefa). A linha ‘coord. ref. : +proj=longlat +datum=WGS84
-+ellps=WGS84 +towgs84=0,0,0’ tem que ser idêntica em ambos; caso contrário você deverá mudar
-as projeções de um ou do outro arquivo. Para conferir a olho nu, faça o mapa de ambos os gráficos na
-mesma janela; se a sobreposição dos mapas não for perfeita, há um problema com a projeção.
+Vamos checar se as projeções do arquivo dos peixes e do mar são idênticas (digite projeções cartografia no Google para ter uma noção da tarefa). A linha ‘coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0’ tem que ser idêntica em ambos; caso contrário você deverá mudar as projeções de um ou do outro arquivo. Para conferir, faça o mapa de ambos os gráficos na mesma janela; se a sobreposição dos mapas não for perfeita, há um problema com a projeção.
 
 
 ```{r}
@@ -151,7 +147,6 @@ borb_maps$Richness_Raster
 ```
 
 
-
 ```{r}
 bathy_ext$BO2_dissoxmean_ss
 ```
@@ -162,13 +157,13 @@ bathy_ext$BO_bathymean
 <br></br>
 
 ## Extraindo médias climáticas por pixel
-O pixel que criamos para calcular a riqueza de espécies de peixes tem dimensão 3x3 graus, enquanto os pixels das variáveis marinhas são de 0.08333333x0.08333333 graus; ou seja, os dados climáticos são muito mais precisos que borb_maps. A definição do tamanho do pixel da informação biológica depende da tua pergunta, mas, em geral, os macroecólogos utilizam 1x1 grau ou 0.5x0.5 grau. O fato é que para cada célula de mamífero, nós temos muitas células de variáveis marinhas; por isso, vamos extrair a média dos valores marinhas dentro de cada célula de peixes; em seguida, precisamos juntar/fundir ambas informações para termos uma correspondência entre a riqueza de peixes e, por exemplo, a quantidade
-média de oxigênio dissolvido por pixel. Para isso usaremos a função lets.addvar.
+O pixel que criamos para calcular a riqueza de espécies de peixes tem dimensão 3x3 graus, enquanto os pixels das variáveis marinhas são de 0.08333333x0.08333333 graus; ou seja, os dados climáticos são muito mais precisos que **borb_maps**. A definição do tamanho do pixel da informação biológica depende da sua pergunta, mas, em geral, os macroecólogos utilizam 1x1 grau ou 0.5x0.5 grau. O fato é que para cada célula nós temos muitas variáveis marinhas, por isso, vamos extrair a média dos valores dentro de cada célula de peixes. Em seguida, precisamos unir ambas informações para termos uma correspondência entre a riqueza de peixes e, por exemplo, a quantidade média de oxigênio dissolvido por pixel. Para isso usaremos a função `lets.addvar`.
 
 
 ```{r}
 # extrair e fundir variáveis climáticas aos mamíferos
 borb_mar <- lets.addvar(borb_maps, bathy_ext, fun = mean)
+
 # veja um pedaço da matriz resultante
 borb_mar[1:5, c(1:5, 25:27)]
 ```
@@ -177,38 +172,29 @@ borb_mar[1:5, c(1:5, 25:27)]
 ## Calculando relações simples entre riqueza e os preditores
 ### Calculando a riqueza de espécies
 
-Com a matriz final já esta praticamente pronta, nos só precisamos incluir uma nova coluna onde
-calcularemos a riqueza de espécies. Para isso, basta somar a ocorrência de todas as espécies ao longo
-das linhas desta matriz (exceto as duas primeiras e as duas últimas que não possuem informação de
-ocorrência) e teremos ao final a riqueza de espécies.
+Com a matriz final já esta praticamente pronta, nos só precisamos incluir uma nova coluna onde calcularemos a riqueza de espécies. Para isso, basta somar a ocorrência de todas as espécies ao longo das linhas desta matriz (exceto as duas primeiras e as duas últimas que não possuem informação de ocorrência) e teremos ao final a riqueza de espécies.
 
 
 ```{r}
-# Precisamos transformar a matriz em um data.frame para
-# facilitar
+# Precisamos transformar a matriz em um data.frame para facilitar
 borb_mar <- as.data.frame(borb_mar)
+
 # Calcular a riqueza de espécies
-borb_mar$riq <- rowSums(borb_mar[, -c(1:2, 26:27)])
+borb_mar$riq <- rowSums(borb_mar[, -c(1:2, 32:33)])
 ```
 
-```{r}
-plot(riq ~ BO_bathymean_mean, borb_mar)
-```
-
-Qual a relação entre a riqueza de espécies e oxigênio dissolvido?
+Parece haver relações entre a batimetria ou a quantidade de oxigênio dissolvido e a riqueza de peixes-borboleta?
 
 ```{r}
-plot(riq ~ BO2_dissoxmean_ss_mean, borb_mar)
+
+par(mfro = c(1, 2))
+plot(riq ~ BO_bathymean_mean, borb_mar, main = "Batimetria x Riqueza")
+plot(riq ~ BO2_dissoxmean_ss_mean, borb_mar, main = "Oxigênio dissolvido x Riqueza")
 ```
 
 ## Bibliography
-1.    Vilela, B. & Villalobos, F. (2015). letsR: A new r package for data handling and analysis in macroecology.
-Methods in Ecology and Evolution, 6, 1229–1234.
+
+Autores: Murilo S. Dias, Juan P. Quimbayo, Thiago Mendes, Mariana Bender, Augusto Flores. Adaptado por: Cesar Cordeiro
 
 
-USAR SEASCAPE X COOCORRENCIA X DIVERSIDADE
-
-https://ggplot2-book.org/maps.html
-https://maevolab.mx/projects/interactions/
-https://gift.uni-goettingen.de/mcmmb/
-http://fabro.github.io/EAE_UFS_2019/exercicios_occurrences_geographic_ranges.html
+1.    Vilela, B. & Villalobos, F. (2015). letsR: A new r package for data handling and analysis in macroecology. Methods in Ecology and Evolution, 6, 1229–1234.

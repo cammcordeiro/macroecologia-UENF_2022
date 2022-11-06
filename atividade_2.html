@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Atividade 2</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Macroecologia Marinha</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fas fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="info.html">
+    <span class="fas fa-folder"></span>
+     
+    Info
+  </a>
+</li>
+<li>
+  <a href="aulas.html">
+    <span class="fas fa-book"></span>
+     
+    Aulas
+  </a>
+</li>
+<li>
+  <a href="atividades.html">
+    <span class="fas fa-chart-bar"></span>
+     
+    Atividades
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/cammcordeiro/macroecologia-UENF_2022">
+    <span class="fab fa-github"></span>
+     
+    GitHub Repo
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+<style>
+body {
+text-align: justify}
+</style>
+<div id="atividade-2" class="section level1 unnumbered">
+<h1 class="unnumbered">Atividade 2</h1>
+<div id="padrões-de-diversidade-e-extração-de-variáveis-marinhas"
+class="section level2 unnumbered">
+<h2 class="unnumbered">Padrões de diversidade e extração de variáveis
+marinhas</h2>
+<p><br></br></p>
+</div>
+<div id="dados-de-peixes-recifais" class="section level2" number="0.1">
+<h2><span class="header-section-number">2.1</span> Dados de peixes
+recifais</h2>
+<p>Para esta atividade, vamos precisar dos arquivos utilizados e criados
+na <a href="atividade_1.html">atividade 1</a>. Para a atividade 2,
+partiremos dos primeiros passos da atividade 1. Para tal, bastar rodar
+este <code>chunck</code> de código abaixo. Caso já esteja com este
+arquivo preparado no ambiente do RStudio, ignore este passo.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(letsR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importanto o shapefile</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>borb <span class="ot">&lt;-</span> rgdal<span class="sc">::</span><span class="fu">readOGR</span>(<span class="at">dsn =</span> <span class="st">&quot;data/Chaetodontidae_NewWorld.shp&quot;</span>)</span></code></pre></div>
+<pre><code>## OGR data source with driver: ESRI Shapefile 
+## Source: &quot;/Users/cesarcordeiro/git/macroecologia-UENF_2022/data/Chaetodontidae_NewWorld.shp&quot;, layer: &quot;Chaetodontidae_NewWorld&quot;
+## with 29 features
+## It has 27 fields
+## Integer64 fields read as strings:  id_no</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando raster</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>borb_maps <span class="ot">&lt;-</span> <span class="fu">lets.presab</span>(borb, <span class="at">resol =</span> <span class="dv">3</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">xmn =</span> <span class="sc">-</span><span class="dv">130</span>, <span class="at">xmx =</span> <span class="dv">40</span>, <span class="co"># America range</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">ymn =</span> <span class="sc">-</span><span class="dv">38</span>, <span class="at">ymx =</span> <span class="dv">45</span>, <span class="co"># America range</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">cover =</span> <span class="fl">0.01</span>)</span></code></pre></div>
+</div>
+<div id="preditores-climáticos-globais" class="section level2"
+number="0.2">
+<h2><span class="header-section-number">2.2</span> Preditores climáticos
+globais</h2>
+<div id="baixando-carregando-e-conferindo-os-dados-marinhos"
+class="section level3" number="0.2.1">
+<h3><span class="header-section-number">2.2.1</span> Baixando,
+carregando e conferindo os dados marinhos</h3>
+<p>Agora que já conhecemos como a riqueza de espécies varia ao longo do
+espaço, precisamos tentar descobrir quais são os mecanismos por trás dos
+padrões espaciais. Para isso, vamos testar o efeito de variáveis
+climáticas na riqueza de espécies em questão por meio de modelos
+lineares simples. Antes disso, devemos recorrer a uma base de dados
+previamente estabelecida que nos forneça as variáveis climáticas de
+interesse. Para isso, você pode procurar no site do <a
+href="https://www.bio-oracle.org">BioOracle</a> e encontrará muitos dos
+dados de que vai precisar. Você também precisará de uma conexão internet
+para baixar os dados do BioOracle (~ 11MB). Vamos utilizar o pacote
+<code>sdmpredictors</code> para obter diretamente estes dados. Assim,
+nossas análises tanto espaciais (SIG quanto estatísticas) ficarão todas
+dentro do R. Isto facilita a manipulação das planilhas e a realização
+dos modelos. Vamos explorar algumas das variáveis marinhas disponíveis
+para o mundo.</p>
+<p>Execute as linhas abaixo e gaste um tempo para ler as informações e
+variáveis disponíveis.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># caso não tenha instalado e carregado o pacote</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&#39;sdmpredictors&#39;) Carregue o package</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdmpredictors)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Explore os dados do pacote</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">list_datasets</span>()</span></code></pre></div>
+<pre><code>##   dataset_code terrestrial marine                              url
+## 1    WorldClim        TRUE  FALSE        http://www.worldclim.org/
+## 2   Bio-ORACLE       FALSE   TRUE           hhtp://bio-oracle.org/
+## 3      MARSPEC       FALSE   TRUE              http://marspec.org/
+## 4      ENVIREM        TRUE  FALSE       https://envirem.github.io/
+## 5   Freshwater        TRUE  FALSE https://www.earthenv.org/streams
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                description
+## 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   WorldClim is a set of global climate layers (climate grids). Note that all data has been transformed back to real values, so there is no need to e.g. divide temperature layers by 10.
+## 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Bio-ORACLE is a set of GIS rasters providing geophysical, biotic and environmental data for surface and benthic marine realms at a spatial resolution 5 arcmin (9.2 km) in the ESRI ascii and tif format.
+## 3 MARSPEC is a set of high resolution climatic and geophysical GIS data layers for the world ocean. Seven geophysical variables were derived from the SRTM30_PLUS high resolution bathymetry dataset.  These layers characterize the horizontal orientation (aspect), slope, and curvature of the seafloor and the distance from shore.  Ten &quot;bioclimatic&quot; variables were derived from NOAA&#39;s World Ocean Atlas and NASA&#39;s MODIS satellite imagery and characterize the inter-annual means, extremes, and variances in sea surface temperature and salinity. These variables will be useful to those interested in the spatial ecology of marine shallow-water and surface-associated pelagic organisms across the globe. Note that, in contrary to the original MARSPEC, all layers have unscaled values.
+## 4                                                                                                                                 The ENVIREM dataset is a set of 16 climatic and 2 topographic variables that can be used in modeling species&#39; distributions. The strengths of this dataset include their close ties to ecological processes, and their availability at a global scale, at several spatial resolutions, and for several time periods. The underlying temperature and precipitation data that went into their construction comes from the WorldClim dataset (www.worldclim.org), and the solar radiation data comes from the Consortium for Spatial Information (www.cgiar-csi.org). The data are compatible with and expand the set of variables from WorldClim v1.4 (www.worldclim.org).
+## 5                                                      The dataset consists of near-global, spatially continuous, and freshwater-specific environmental variables in a standardized 1km grid. We delineated the sub-catchment for each grid cell along the HydroSHEDS river network and summarized the upstream environment (climate, topography, land cover, surface geology and soil) to each grid cell using various metrics (average, minimum, maximum, range, sum, inverse distance-weighted average and sum). All variables were subsequently averaged across single lakes and reservoirs of the Global lakes and Wetlands Database that are connected to the river network. Monthly climate variables were summarized into 19 long-term climatic variables following the \xd2bioclim\xd3 framework.
+##                                                                                                                                                                                                                                                citation
+## 1                                                Hijmans, R.J., S.E. Cameron, J.L. Parra, P.G. Jones and A. Jarvis, 2005. Very high resolution interpolated climate surfaces for global land areas. International Journal of Climatology 25: 1965-1978.
+## 2 Tyberghein L., Verbruggen H., Pauly K., Troupin C., Mineur F. &amp; De Clerck O. Bio-ORACLE: a global environmental dataset for marine species distribution modeling. Global Ecology and Biogeography. http://dx.doi.org/10.1111/j.1466-8238.2011.00656.x
+## 3                                                                                                      Sbrocco, EJ and Barber, PH (2013) MARSPEC: Ocean climate layers for marine spatial ecology. Ecology 94: 979. http://dx.doi.org/10.1890/12-1358.1
+## 4                                    Title, P.O., Bemmels, J.B. 2017. ENVIREM: An expanded set of bioclimatic and topographic variables increases flexibility and improves performance of ecological niche modeling. Ecography doi: 10.1111/ecog.02880.
+## 5                                              Domisch, S., Amatulli, G., and Jetz, W. (2015) Near-global freshwater-specific environmental variables for biodiversity analyses in 1 km resolution. Scientific Data 2:150073 doi: 10.1038/sdata.2015.73</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vejam a quantidade de raster disponivel!</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list_layers</span>(<span class="fu">c</span>(<span class="st">&quot;Bio-ORACLE&quot;</span>))<span class="sc">$</span>layer_code</span></code></pre></div>
+<pre><code>##   [1] &quot;BO22_calcite&quot;                 &quot;BO22_cloudmax&quot;               
+##   [3] &quot;BO22_cloudmean&quot;               &quot;BO22_cloudmin&quot;               
+##   [5] &quot;BO22_damax&quot;                   &quot;BO22_damean&quot;                 
+##   [7] &quot;BO22_damin&quot;                   &quot;BO22_parmax&quot;                 
+##   [9] &quot;BO22_parmean&quot;                 &quot;BO22_ph&quot;                     
+##  [11] &quot;BO_calcite&quot;                   &quot;BO_chlomax&quot;                  
+##  [13] &quot;BO_chlomean&quot;                  &quot;BO_chlomin&quot;                  
+##  [15] &quot;BO_chlorange&quot;                 &quot;BO_cloudmean&quot;                
+##  [17] &quot;BO_cloudmin&quot;                  &quot;BO_damax&quot;                    
+##  [19] &quot;BO_damean&quot;                    &quot;BO_damin&quot;                    
+##  [21] &quot;BO_dissox&quot;                    &quot;BO_nitrate&quot;                  
+##  [23] &quot;BO_parmax&quot;                    &quot;BO_parmean&quot;                  
+##  [25] &quot;BO_ph&quot;                        &quot;BO_phosphate&quot;                
+##  [27] &quot;BO_salinity&quot;                  &quot;BO_silicate&quot;                 
+##  [29] &quot;BO_sstmax&quot;                    &quot;BO_sstmean&quot;                  
+##  [31] &quot;BO_sstmin&quot;                    &quot;BO_sstrange&quot;                 
+##  [33] &quot;BO_bathymin&quot;                  &quot;BO_bathymax&quot;                 
+##  [35] &quot;BO_bathymean&quot;                 &quot;BO2_chlomax_bdmax&quot;           
+##  [37] &quot;BO2_chlomax_bdmean&quot;           &quot;BO2_chlomax_bdmin&quot;           
+##  [39] &quot;BO2_chlomean_bdmax&quot;           &quot;BO2_chlomean_bdmean&quot;         
+##  [41] &quot;BO2_chlomean_bdmin&quot;           &quot;BO2_chlomin_bdmax&quot;           
+##  [43] &quot;BO2_chlomin_bdmean&quot;           &quot;BO2_chlomin_bdmin&quot;           
+##  [45] &quot;BO2_chlorange_bdmax&quot;          &quot;BO2_chlorange_bdmean&quot;        
+##  [47] &quot;BO2_chlorange_bdmin&quot;          &quot;BO2_chloltmax_bdmax&quot;         
+##  [49] &quot;BO2_chloltmax_bdmean&quot;         &quot;BO2_chloltmax_bdmin&quot;         
+##  [51] &quot;BO2_chloltmin_bdmax&quot;          &quot;BO2_chloltmin_bdmean&quot;        
+##  [53] &quot;BO2_chloltmin_bdmin&quot;          &quot;BO2_curvelmax_bdmax&quot;         
+##  [55] &quot;BO2_curvelmax_bdmean&quot;         &quot;BO2_curvelmax_bdmin&quot;         
+##  [57] &quot;BO2_curvelmean_bdmax&quot;         &quot;BO2_curvelmean_bdmean&quot;       
+##  [59] &quot;BO2_curvelmean_bdmin&quot;         &quot;BO2_curvelmin_bdmax&quot;         
+##  [61] &quot;BO2_curvelmin_bdmean&quot;         &quot;BO2_curvelmin_bdmin&quot;         
+##  [63] &quot;BO2_curvelrange_bdmax&quot;        &quot;BO2_curvelrange_bdmean&quot;      
+##  [65] &quot;BO2_curvelrange_bdmin&quot;        &quot;BO2_curvelltmax_bdmax&quot;       
+##  [67] &quot;BO2_curvelltmax_bdmean&quot;       &quot;BO2_curvelltmax_bdmin&quot;       
+##  [69] &quot;BO2_curvelltmin_bdmax&quot;        &quot;BO2_curvelltmin_bdmean&quot;      
+##  [71] &quot;BO2_curvelltmin_bdmin&quot;        &quot;BO2_dissoxmax_bdmax&quot;         
+##  [73] &quot;BO2_dissoxmax_bdmean&quot;         &quot;BO2_dissoxmax_bdmin&quot;         
+##  [75] &quot;BO2_dissoxmean_bdmax&quot;         &quot;BO2_dissoxmean_bdmean&quot;       
+##  [77] &quot;BO2_dissoxmean_bdmin&quot;         &quot;BO2_dissoxmin_bdmax&quot;         
+##  [79] &quot;BO2_dissoxmin_bdmean&quot;         &quot;BO2_dissoxmin_bdmin&quot;         
+##  [81] &quot;BO2_dissoxrange_bdmax&quot;        &quot;BO2_dissoxrange_bdmean&quot;      
+##  [83] &quot;BO2_dissoxrange_bdmin&quot;        &quot;BO2_dissoxltmax_bdmax&quot;       
+##  [85] &quot;BO2_dissoxltmax_bdmean&quot;       &quot;BO2_dissoxltmax_bdmin&quot;       
+##  [87] &quot;BO2_dissoxltmin_bdmax&quot;        &quot;BO2_dissoxltmin_bdmean&quot;      
+##  [89] &quot;BO2_dissoxltmin_bdmin&quot;        &quot;BO2_ironmax_bdmax&quot;           
+##  [91] &quot;BO2_ironmax_bdmean&quot;           &quot;BO2_ironmax_bdmin&quot;           
+##  [93] &quot;BO2_ironmean_bdmax&quot;           &quot;BO2_ironmean_bdmean&quot;         
+##  [95] &quot;BO2_ironmean_bdmin&quot;           &quot;BO2_ironmin_bdmax&quot;           
+##  [97] &quot;BO2_ironmin_bdmean&quot;           &quot;BO2_ironmin_bdmin&quot;           
+##  [99] &quot;BO2_ironrange_bdmax&quot;          &quot;BO2_ironrange_bdmean&quot;        
+## [101] &quot;BO2_ironrange_bdmin&quot;          &quot;BO2_ironltmax_bdmax&quot;         
+## [103] &quot;BO2_ironltmax_bdmean&quot;         &quot;BO2_ironltmax_bdmin&quot;         
+## [105] &quot;BO2_ironltmin_bdmax&quot;          &quot;BO2_ironltmin_bdmean&quot;        
+## [107] &quot;BO2_ironltmin_bdmin&quot;          &quot;BO2_phosphatemax_bdmax&quot;      
+## [109] &quot;BO2_phosphatemax_bdmean&quot;      &quot;BO2_phosphatemax_bdmin&quot;      
+## [111] &quot;BO2_phosphatemean_bdmax&quot;      &quot;BO2_phosphatemean_bdmean&quot;    
+## [113] &quot;BO2_phosphatemean_bdmin&quot;      &quot;BO2_phosphatemin_bdmax&quot;      
+## [115] &quot;BO2_phosphatemin_bdmean&quot;      &quot;BO2_phosphatemin_bdmin&quot;      
+## [117] &quot;BO2_phosphaterange_bdmax&quot;     &quot;BO2_phosphaterange_bdmean&quot;   
+## [119] &quot;BO2_phosphaterange_bdmin&quot;     &quot;BO2_phosphateltmax_bdmax&quot;    
+## [121] &quot;BO2_phosphateltmax_bdmean&quot;    &quot;BO2_phosphateltmax_bdmin&quot;    
+## [123] &quot;BO2_phosphateltmin_bdmax&quot;     &quot;BO2_phosphateltmin_bdmean&quot;   
+## [125] &quot;BO2_phosphateltmin_bdmin&quot;     &quot;BO2_lightbotmax_bdmax&quot;       
+## [127] &quot;BO2_lightbotmax_bdmean&quot;       &quot;BO2_lightbotmax_bdmin&quot;       
+## [129] &quot;BO2_lightbotmean_bdmax&quot;       &quot;BO2_lightbotmean_bdmean&quot;     
+## [131] &quot;BO2_lightbotmean_bdmin&quot;       &quot;BO2_lightbotmin_bdmax&quot;       
+## [133] &quot;BO2_lightbotmin_bdmean&quot;       &quot;BO2_lightbotmin_bdmin&quot;       
+## [135] &quot;BO2_lightbotrange_bdmax&quot;      &quot;BO2_lightbotrange_bdmean&quot;    
+## [137] &quot;BO2_lightbotrange_bdmin&quot;      &quot;BO2_lightbotltmax_bdmax&quot;     
+## [139] &quot;BO2_lightbotltmax_bdmean&quot;     &quot;BO2_lightbotltmax_bdmin&quot;     
+## [141] &quot;BO2_lightbotltmin_bdmax&quot;      &quot;BO2_lightbotltmin_bdmean&quot;    
+## [143] &quot;BO2_lightbotltmin_bdmin&quot;      &quot;BO2_nitratemax_bdmax&quot;        
+## [145] &quot;BO2_nitratemax_bdmean&quot;        &quot;BO2_nitratemax_bdmin&quot;        
+## [147] &quot;BO2_nitratemean_bdmax&quot;        &quot;BO2_nitratemean_bdmean&quot;      
+## [149] &quot;BO2_nitratemean_bdmin&quot;        &quot;BO2_nitratemin_bdmax&quot;        
+## [151] &quot;BO2_nitratemin_bdmean&quot;        &quot;BO2_nitratemin_bdmin&quot;        
+## [153] &quot;BO2_nitraterange_bdmax&quot;       &quot;BO2_nitraterange_bdmean&quot;     
+## [155] &quot;BO2_nitraterange_bdmin&quot;       &quot;BO2_nitrateltmax_bdmax&quot;      
+## [157] &quot;BO2_nitrateltmax_bdmean&quot;      &quot;BO2_nitrateltmax_bdmin&quot;      
+## [159] &quot;BO2_nitrateltmin_bdmax&quot;       &quot;BO2_nitrateltmin_bdmean&quot;     
+## [161] &quot;BO2_nitrateltmin_bdmin&quot;       &quot;BO2_tempmax_bdmax&quot;           
+## [163] &quot;BO2_tempmax_bdmean&quot;           &quot;BO2_tempmax_bdmin&quot;           
+## [165] &quot;BO2_tempmean_bdmax&quot;           &quot;BO2_tempmean_bdmean&quot;         
+## [167] &quot;BO2_tempmean_bdmin&quot;           &quot;BO2_tempmin_bdmax&quot;           
+## [169] &quot;BO2_tempmin_bdmean&quot;           &quot;BO2_tempmin_bdmin&quot;           
+## [171] &quot;BO2_temprange_bdmax&quot;          &quot;BO2_temprange_bdmean&quot;        
+## [173] &quot;BO2_temprange_bdmin&quot;          &quot;BO2_templtmax_bdmax&quot;         
+## [175] &quot;BO2_templtmax_bdmean&quot;         &quot;BO2_templtmax_bdmin&quot;         
+## [177] &quot;BO2_templtmin_bdmax&quot;          &quot;BO2_templtmin_bdmean&quot;        
+## [179] &quot;BO2_templtmin_bdmin&quot;          &quot;BO2_carbonphytomax_bdmax&quot;    
+## [181] &quot;BO2_carbonphytomax_bdmean&quot;    &quot;BO2_carbonphytomax_bdmin&quot;    
+## [183] &quot;BO2_carbonphytomean_bdmax&quot;    &quot;BO2_carbonphytomean_bdmean&quot;  
+## [185] &quot;BO2_carbonphytomean_bdmin&quot;    &quot;BO2_carbonphytomin_bdmax&quot;    
+## [187] &quot;BO2_carbonphytomin_bdmean&quot;    &quot;BO2_carbonphytomin_bdmin&quot;    
+## [189] &quot;BO2_carbonphytorange_bdmax&quot;   &quot;BO2_carbonphytorange_bdmean&quot; 
+## [191] &quot;BO2_carbonphytorange_bdmin&quot;   &quot;BO2_carbonphytoltmax_bdmax&quot;  
+## [193] &quot;BO2_carbonphytoltmax_bdmean&quot;  &quot;BO2_carbonphytoltmax_bdmin&quot;  
+## [195] &quot;BO2_carbonphytoltmin_bdmax&quot;   &quot;BO2_carbonphytoltmin_bdmean&quot; 
+## [197] &quot;BO2_carbonphytoltmin_bdmin&quot;   &quot;BO2_ppmax_bdmax&quot;             
+## [199] &quot;BO2_ppmax_bdmean&quot;             &quot;BO2_ppmax_bdmin&quot;             
+## [201] &quot;BO2_ppmean_bdmax&quot;             &quot;BO2_ppmean_bdmean&quot;           
+## [203] &quot;BO2_ppmean_bdmin&quot;             &quot;BO2_ppmin_bdmax&quot;             
+## [205] &quot;BO2_ppmin_bdmean&quot;             &quot;BO2_ppmin_bdmin&quot;             
+## [207] &quot;BO2_pprange_bdmax&quot;            &quot;BO2_pprange_bdmean&quot;          
+## [209] &quot;BO2_pprange_bdmin&quot;            &quot;BO2_ppltmax_bdmax&quot;           
+## [211] &quot;BO2_ppltmax_bdmean&quot;           &quot;BO2_ppltmax_bdmin&quot;           
+## [213] &quot;BO2_ppltmin_bdmax&quot;            &quot;BO2_ppltmin_bdmean&quot;          
+## [215] &quot;BO2_ppltmin_bdmin&quot;            &quot;BO2_salinitymax_bdmax&quot;       
+## [217] &quot;BO2_salinitymax_bdmean&quot;       &quot;BO2_salinitymax_bdmin&quot;       
+## [219] &quot;BO2_salinitymean_bdmax&quot;       &quot;BO2_salinitymean_bdmean&quot;     
+## [221] &quot;BO2_salinitymean_bdmin&quot;       &quot;BO2_salinitymin_bdmax&quot;       
+## [223] &quot;BO2_salinitymin_bdmean&quot;       &quot;BO2_salinitymin_bdmin&quot;       
+## [225] &quot;BO2_salinityrange_bdmax&quot;      &quot;BO2_salinityrange_bdmean&quot;    
+## [227] &quot;BO2_salinityrange_bdmin&quot;      &quot;BO2_salinityltmax_bdmax&quot;     
+## [229] &quot;BO2_salinityltmax_bdmean&quot;     &quot;BO2_salinityltmax_bdmin&quot;     
+## [231] &quot;BO2_salinityltmin_bdmax&quot;      &quot;BO2_salinityltmin_bdmean&quot;    
+## [233] &quot;BO2_salinityltmin_bdmin&quot;      &quot;BO2_silicatemax_bdmax&quot;       
+## [235] &quot;BO2_silicatemax_bdmean&quot;       &quot;BO2_silicatemax_bdmin&quot;       
+## [237] &quot;BO2_silicatemean_bdmax&quot;       &quot;BO2_silicatemean_bdmean&quot;     
+## [239] &quot;BO2_silicatemean_bdmin&quot;       &quot;BO2_silicatemin_bdmax&quot;       
+## [241] &quot;BO2_silicatemin_bdmean&quot;       &quot;BO2_silicatemin_bdmin&quot;       
+## [243] &quot;BO2_silicaterange_bdmax&quot;      &quot;BO2_silicaterange_bdmean&quot;    
+## [245] &quot;BO2_silicaterange_bdmin&quot;      &quot;BO2_silicateltmax_bdmax&quot;     
+## [247] &quot;BO2_silicateltmax_bdmean&quot;     &quot;BO2_silicateltmax_bdmin&quot;     
+## [249] &quot;BO2_silicateltmin_bdmax&quot;      &quot;BO2_silicateltmin_bdmean&quot;    
+## [251] &quot;BO2_silicateltmin_bdmin&quot;      &quot;BO2_icecoverltmax_ss&quot;        
+## [253] &quot;BO2_icecoverltmin_ss&quot;         &quot;BO2_icecovermax_ss&quot;          
+## [255] &quot;BO2_icecovermean_ss&quot;          &quot;BO2_icecovermin_ss&quot;          
+## [257] &quot;BO2_icecoverrange_ss&quot;         &quot;BO2_icethickltmax_ss&quot;        
+## [259] &quot;BO2_icethickltmin_ss&quot;         &quot;BO2_icethickmax_ss&quot;          
+## [261] &quot;BO2_icethickmean_ss&quot;          &quot;BO2_icethickmin_ss&quot;          
+## [263] &quot;BO2_icethickrange_ss&quot;         &quot;BO2_templtmax_ss&quot;            
+## [265] &quot;BO2_templtmin_ss&quot;             &quot;BO2_tempmax_ss&quot;              
+## [267] &quot;BO2_tempmean_ss&quot;              &quot;BO2_tempmin_ss&quot;              
+## [269] &quot;BO2_temprange_ss&quot;             &quot;BO2_chlomax_ss&quot;              
+## [271] &quot;BO2_chlomean_ss&quot;              &quot;BO2_chlomin_ss&quot;              
+## [273] &quot;BO2_chlorange_ss&quot;             &quot;BO2_chloltmax_ss&quot;            
+## [275] &quot;BO2_chloltmin_ss&quot;             &quot;BO2_curvelmax_ss&quot;            
+## [277] &quot;BO2_curvelmean_ss&quot;            &quot;BO2_curvelmin_ss&quot;            
+## [279] &quot;BO2_curvelrange_ss&quot;           &quot;BO2_curvelltmax_ss&quot;          
+## [281] &quot;BO2_curvelltmin_ss&quot;           &quot;BO2_dissoxmax_ss&quot;            
+## [283] &quot;BO2_dissoxmean_ss&quot;            &quot;BO2_dissoxmin_ss&quot;            
+## [285] &quot;BO2_dissoxrange_ss&quot;           &quot;BO2_dissoxltmax_ss&quot;          
+## [287] &quot;BO2_dissoxltmin_ss&quot;           &quot;BO2_ironmax_ss&quot;              
+## [289] &quot;BO2_ironmean_ss&quot;              &quot;BO2_ironmin_ss&quot;              
+## [291] &quot;BO2_ironrange_ss&quot;             &quot;BO2_ironltmax_ss&quot;            
+## [293] &quot;BO2_ironltmin_ss&quot;             &quot;BO2_phosphatemax_ss&quot;         
+## [295] &quot;BO2_phosphatemean_ss&quot;         &quot;BO2_phosphatemin_ss&quot;         
+## [297] &quot;BO2_phosphaterange_ss&quot;        &quot;BO2_phosphateltmax_ss&quot;       
+## [299] &quot;BO2_phosphateltmin_ss&quot;        &quot;BO2_nitratemax_ss&quot;           
+## [301] &quot;BO2_nitratemean_ss&quot;           &quot;BO2_nitratemin_ss&quot;           
+## [303] &quot;BO2_nitraterange_ss&quot;          &quot;BO2_nitrateltmax_ss&quot;         
+## [305] &quot;BO2_nitrateltmin_ss&quot;          &quot;BO2_carbonphytomax_ss&quot;       
+## [307] &quot;BO2_carbonphytomean_ss&quot;       &quot;BO2_carbonphytomin_ss&quot;       
+## [309] &quot;BO2_carbonphytorange_ss&quot;      &quot;BO2_carbonphytoltmax_ss&quot;     
+## [311] &quot;BO2_carbonphytoltmin_ss&quot;      &quot;BO2_ppmax_ss&quot;                
+## [313] &quot;BO2_ppmean_ss&quot;                &quot;BO2_ppmin_ss&quot;                
+## [315] &quot;BO2_pprange_ss&quot;               &quot;BO2_ppltmax_ss&quot;              
+## [317] &quot;BO2_ppltmin_ss&quot;               &quot;BO2_salinitymax_ss&quot;          
+## [319] &quot;BO2_salinitymean_ss&quot;          &quot;BO2_salinitymin_ss&quot;          
+## [321] &quot;BO2_salinityrange_ss&quot;         &quot;BO2_salinityltmax_ss&quot;        
+## [323] &quot;BO2_salinityltmin_ss&quot;         &quot;BO2_silicatemax_ss&quot;          
+## [325] &quot;BO2_silicatemean_ss&quot;          &quot;BO2_silicatemin_ss&quot;          
+## [327] &quot;BO2_silicaterange_ss&quot;         &quot;BO2_silicateltmax_ss&quot;        
+## [329] &quot;BO2_silicateltmin_ss&quot;         &quot;BO21_carbonphytoltmax_bdmax&quot; 
+## [331] &quot;BO21_carbonphytoltmax_bdmean&quot; &quot;BO21_carbonphytoltmax_bdmin&quot; 
+## [333] &quot;BO21_carbonphytoltmax_ss&quot;     &quot;BO21_carbonphytoltmin_bdmax&quot; 
+## [335] &quot;BO21_carbonphytoltmin_bdmean&quot; &quot;BO21_carbonphytoltmin_bdmin&quot; 
+## [337] &quot;BO21_carbonphytoltmin_ss&quot;     &quot;BO21_carbonphytomax_bdmax&quot;   
+## [339] &quot;BO21_carbonphytomax_bdmean&quot;   &quot;BO21_carbonphytomax_bdmin&quot;   
+## [341] &quot;BO21_carbonphytomax_ss&quot;       &quot;BO21_carbonphytomean_bdmax&quot;  
+## [343] &quot;BO21_carbonphytomean_bdmean&quot;  &quot;BO21_carbonphytomean_bdmin&quot;  
+## [345] &quot;BO21_carbonphytomean_ss&quot;      &quot;BO21_carbonphytomin_bdmax&quot;   
+## [347] &quot;BO21_carbonphytomin_bdmean&quot;   &quot;BO21_carbonphytomin_bdmin&quot;   
+## [349] &quot;BO21_carbonphytomin_ss&quot;       &quot;BO21_carbonphytorange_bdmax&quot; 
+## [351] &quot;BO21_carbonphytorange_bdmean&quot; &quot;BO21_carbonphytorange_bdmin&quot; 
+## [353] &quot;BO21_carbonphytorange_ss&quot;     &quot;BO21_chloltmax_bdmax&quot;        
+## [355] &quot;BO21_chloltmax_bdmean&quot;        &quot;BO21_chloltmax_bdmin&quot;        
+## [357] &quot;BO21_chloltmax_ss&quot;            &quot;BO21_chloltmin_bdmax&quot;        
+## [359] &quot;BO21_chloltmin_bdmean&quot;        &quot;BO21_chloltmin_bdmin&quot;        
+## [361] &quot;BO21_chloltmin_ss&quot;            &quot;BO21_chlomax_bdmax&quot;          
+## [363] &quot;BO21_chlomax_bdmean&quot;          &quot;BO21_chlomax_bdmin&quot;          
+## [365] &quot;BO21_chlomax_ss&quot;              &quot;BO21_chlomean_bdmax&quot;         
+## [367] &quot;BO21_chlomean_bdmean&quot;         &quot;BO21_chlomean_bdmin&quot;         
+## [369] &quot;BO21_chlomean_ss&quot;             &quot;BO21_chlomin_bdmax&quot;          
+## [371] &quot;BO21_chlomin_bdmean&quot;          &quot;BO21_chlomin_bdmin&quot;          
+## [373] &quot;BO21_chlomin_ss&quot;              &quot;BO21_chlorange_bdmax&quot;        
+## [375] &quot;BO21_chlorange_bdmean&quot;        &quot;BO21_chlorange_bdmin&quot;        
+## [377] &quot;BO21_chlorange_ss&quot;            &quot;BO21_curvelltmax_bdmax&quot;      
+## [379] &quot;BO21_curvelltmax_bdmean&quot;      &quot;BO21_curvelltmax_bdmin&quot;      
+## [381] &quot;BO21_curvelltmax_ss&quot;          &quot;BO21_curvelltmin_bdmax&quot;      
+## [383] &quot;BO21_curvelltmin_bdmean&quot;      &quot;BO21_curvelltmin_bdmin&quot;      
+## [385] &quot;BO21_curvelltmin_ss&quot;          &quot;BO21_curvelmax_bdmax&quot;        
+## [387] &quot;BO21_curvelmax_bdmean&quot;        &quot;BO21_curvelmax_bdmin&quot;        
+## [389] &quot;BO21_curvelmax_ss&quot;            &quot;BO21_curvelmean_bdmax&quot;       
+## [391] &quot;BO21_curvelmean_bdmean&quot;       &quot;BO21_curvelmean_bdmin&quot;       
+## [393] &quot;BO21_curvelmean_ss&quot;           &quot;BO21_curvelmin_bdmax&quot;        
+## [395] &quot;BO21_curvelmin_bdmean&quot;        &quot;BO21_curvelmin_bdmin&quot;        
+## [397] &quot;BO21_curvelmin_ss&quot;            &quot;BO21_curvelrange_bdmax&quot;      
+## [399] &quot;BO21_curvelrange_bdmean&quot;      &quot;BO21_curvelrange_bdmin&quot;      
+## [401] &quot;BO21_curvelrange_ss&quot;          &quot;BO21_dissoxltmax_bdmax&quot;      
+## [403] &quot;BO21_dissoxltmax_bdmean&quot;      &quot;BO21_dissoxltmax_bdmin&quot;      
+## [405] &quot;BO21_dissoxltmax_ss&quot;          &quot;BO21_dissoxltmin_bdmax&quot;      
+## [407] &quot;BO21_dissoxltmin_bdmean&quot;      &quot;BO21_dissoxltmin_bdmin&quot;      
+## [409] &quot;BO21_dissoxltmin_ss&quot;          &quot;BO21_dissoxmax_bdmax&quot;        
+## [411] &quot;BO21_dissoxmax_bdmean&quot;        &quot;BO21_dissoxmax_bdmin&quot;        
+## [413] &quot;BO21_dissoxmax_ss&quot;            &quot;BO21_dissoxmean_bdmax&quot;       
+## [415] &quot;BO21_dissoxmean_bdmean&quot;       &quot;BO21_dissoxmean_bdmin&quot;       
+## [417] &quot;BO21_dissoxmean_ss&quot;           &quot;BO21_dissoxmin_bdmax&quot;        
+## [419] &quot;BO21_dissoxmin_bdmean&quot;        &quot;BO21_dissoxmin_bdmin&quot;        
+## [421] &quot;BO21_dissoxmin_ss&quot;            &quot;BO21_dissoxrange_bdmax&quot;      
+## [423] &quot;BO21_dissoxrange_bdmean&quot;      &quot;BO21_dissoxrange_bdmin&quot;      
+## [425] &quot;BO21_dissoxrange_ss&quot;          &quot;BO21_icecoverltmax_ss&quot;       
+## [427] &quot;BO21_icecoverltmin_ss&quot;        &quot;BO21_icecovermax_ss&quot;         
+## [429] &quot;BO21_icecovermean_ss&quot;         &quot;BO21_icecovermin_ss&quot;         
+## [431] &quot;BO21_icecoverrange_ss&quot;        &quot;BO21_icethickltmax_ss&quot;       
+## [433] &quot;BO21_icethickltmin_ss&quot;        &quot;BO21_icethickmax_ss&quot;         
+## [435] &quot;BO21_icethickmean_ss&quot;         &quot;BO21_icethickmin_ss&quot;         
+## [437] &quot;BO21_icethickrange_ss&quot;        &quot;BO21_ironltmax_bdmax&quot;        
+## [439] &quot;BO21_ironltmax_bdmean&quot;        &quot;BO21_ironltmax_bdmin&quot;        
+## [441] &quot;BO21_ironltmax_ss&quot;            &quot;BO21_ironltmin_bdmax&quot;        
+## [443] &quot;BO21_ironltmin_bdmean&quot;        &quot;BO21_ironltmin_bdmin&quot;        
+## [445] &quot;BO21_ironltmin_ss&quot;            &quot;BO21_ironmax_bdmax&quot;          
+## [447] &quot;BO21_ironmax_bdmean&quot;          &quot;BO21_ironmax_bdmin&quot;          
+## [449] &quot;BO21_ironmax_ss&quot;              &quot;BO21_ironmean_bdmax&quot;         
+## [451] &quot;BO21_ironmean_bdmean&quot;         &quot;BO21_ironmean_bdmin&quot;         
+## [453] &quot;BO21_ironmean_ss&quot;             &quot;BO21_ironmin_bdmax&quot;          
+## [455] &quot;BO21_ironmin_bdmean&quot;          &quot;BO21_ironmin_bdmin&quot;          
+## [457] &quot;BO21_ironmin_ss&quot;              &quot;BO21_ironrange_bdmax&quot;        
+## [459] &quot;BO21_ironrange_bdmean&quot;        &quot;BO21_ironrange_bdmin&quot;        
+## [461] &quot;BO21_ironrange_ss&quot;            &quot;BO21_lightbotltmax_bdmax&quot;    
+## [463] &quot;BO21_lightbotltmax_bdmean&quot;    &quot;BO21_lightbotltmax_bdmin&quot;    
+## [465] &quot;BO21_lightbotltmin_bdmax&quot;     &quot;BO21_lightbotltmin_bdmean&quot;   
+## [467] &quot;BO21_lightbotltmin_bdmin&quot;     &quot;BO21_lightbotmax_bdmax&quot;      
+## [469] &quot;BO21_lightbotmax_bdmean&quot;      &quot;BO21_lightbotmax_bdmin&quot;      
+## [471] &quot;BO21_lightbotmean_bdmax&quot;      &quot;BO21_lightbotmean_bdmean&quot;    
+## [473] &quot;BO21_lightbotmean_bdmin&quot;      &quot;BO21_lightbotmin_bdmax&quot;      
+## [475] &quot;BO21_lightbotmin_bdmean&quot;      &quot;BO21_lightbotmin_bdmin&quot;      
+## [477] &quot;BO21_lightbotrange_bdmax&quot;     &quot;BO21_lightbotrange_bdmean&quot;   
+## [479] &quot;BO21_lightbotrange_bdmin&quot;     &quot;BO21_nitrateltmax_bdmax&quot;     
+## [481] &quot;BO21_nitrateltmax_bdmean&quot;     &quot;BO21_nitrateltmax_bdmin&quot;     
+## [483] &quot;BO21_nitrateltmax_ss&quot;         &quot;BO21_nitrateltmin_bdmax&quot;     
+## [485] &quot;BO21_nitrateltmin_bdmean&quot;     &quot;BO21_nitrateltmin_bdmin&quot;     
+## [487] &quot;BO21_nitrateltmin_ss&quot;         &quot;BO21_nitratemax_bdmax&quot;       
+## [489] &quot;BO21_nitratemax_bdmean&quot;       &quot;BO21_nitratemax_bdmin&quot;       
+## [491] &quot;BO21_nitratemax_ss&quot;           &quot;BO21_nitratemean_bdmax&quot;      
+## [493] &quot;BO21_nitratemean_bdmean&quot;      &quot;BO21_nitratemean_bdmin&quot;      
+## [495] &quot;BO21_nitratemean_ss&quot;          &quot;BO21_nitratemin_bdmax&quot;       
+## [497] &quot;BO21_nitratemin_bdmean&quot;       &quot;BO21_nitratemin_bdmin&quot;       
+## [499] &quot;BO21_nitratemin_ss&quot;           &quot;BO21_nitraterange_bdmax&quot;     
+## [501] &quot;BO21_nitraterange_bdmean&quot;     &quot;BO21_nitraterange_bdmin&quot;     
+## [503] &quot;BO21_nitraterange_ss&quot;         &quot;BO21_phosphateltmax_bdmax&quot;   
+## [505] &quot;BO21_phosphateltmax_bdmean&quot;   &quot;BO21_phosphateltmax_bdmin&quot;   
+## [507] &quot;BO21_phosphateltmax_ss&quot;       &quot;BO21_phosphateltmin_bdmax&quot;   
+## [509] &quot;BO21_phosphateltmin_bdmean&quot;   &quot;BO21_phosphateltmin_bdmin&quot;   
+## [511] &quot;BO21_phosphateltmin_ss&quot;       &quot;BO21_phosphatemax_bdmax&quot;     
+## [513] &quot;BO21_phosphatemax_bdmean&quot;     &quot;BO21_phosphatemax_bdmin&quot;     
+## [515] &quot;BO21_phosphatemax_ss&quot;         &quot;BO21_phosphatemean_bdmax&quot;    
+## [517] &quot;BO21_phosphatemean_bdmean&quot;    &quot;BO21_phosphatemean_bdmin&quot;    
+## [519] &quot;BO21_phosphatemean_ss&quot;        &quot;BO21_phosphatemin_bdmax&quot;     
+## [521] &quot;BO21_phosphatemin_bdmean&quot;     &quot;BO21_phosphatemin_bdmin&quot;     
+## [523] &quot;BO21_phosphatemin_ss&quot;         &quot;BO21_phosphaterange_bdmax&quot;   
+## [525] &quot;BO21_phosphaterange_bdmean&quot;   &quot;BO21_phosphaterange_bdmin&quot;   
+## [527] &quot;BO21_phosphaterange_ss&quot;       &quot;BO21_ppltmax_bdmax&quot;          
+## [529] &quot;BO21_ppltmax_bdmean&quot;          &quot;BO21_ppltmax_bdmin&quot;          
+## [531] &quot;BO21_ppltmax_ss&quot;              &quot;BO21_ppltmin_bdmax&quot;          
+## [533] &quot;BO21_ppltmin_bdmean&quot;          &quot;BO21_ppltmin_bdmin&quot;          
+## [535] &quot;BO21_ppltmin_ss&quot;              &quot;BO21_ppmax_bdmax&quot;            
+## [537] &quot;BO21_ppmax_bdmean&quot;            &quot;BO21_ppmax_bdmin&quot;            
+## [539] &quot;BO21_ppmax_ss&quot;                &quot;BO21_ppmean_bdmax&quot;           
+## [541] &quot;BO21_ppmean_bdmean&quot;           &quot;BO21_ppmean_bdmin&quot;           
+## [543] &quot;BO21_ppmean_ss&quot;               &quot;BO21_ppmin_bdmax&quot;            
+## [545] &quot;BO21_ppmin_bdmean&quot;            &quot;BO21_ppmin_bdmin&quot;            
+## [547] &quot;BO21_ppmin_ss&quot;                &quot;BO21_pprange_bdmax&quot;          
+## [549] &quot;BO21_pprange_bdmean&quot;          &quot;BO21_pprange_bdmin&quot;          
+## [551] &quot;BO21_pprange_ss&quot;              &quot;BO21_salinityltmax_bdmax&quot;    
+## [553] &quot;BO21_salinityltmax_bdmean&quot;    &quot;BO21_salinityltmax_bdmin&quot;    
+## [555] &quot;BO21_salinityltmax_ss&quot;        &quot;BO21_salinityltmin_bdmax&quot;    
+## [557] &quot;BO21_salinityltmin_bdmean&quot;    &quot;BO21_salinityltmin_bdmin&quot;    
+## [559] &quot;BO21_salinityltmin_ss&quot;        &quot;BO21_salinitymax_bdmax&quot;      
+## [561] &quot;BO21_salinitymax_bdmean&quot;      &quot;BO21_salinitymax_bdmin&quot;      
+## [563] &quot;BO21_salinitymax_ss&quot;          &quot;BO21_salinitymean_bdmax&quot;     
+## [565] &quot;BO21_salinitymean_bdmean&quot;     &quot;BO21_salinitymean_bdmin&quot;     
+## [567] &quot;BO21_salinitymean_ss&quot;         &quot;BO21_salinitymin_bdmax&quot;      
+## [569] &quot;BO21_salinitymin_bdmean&quot;      &quot;BO21_salinitymin_bdmin&quot;      
+## [571] &quot;BO21_salinitymin_ss&quot;          &quot;BO21_salinityrange_bdmax&quot;    
+## [573] &quot;BO21_salinityrange_bdmean&quot;    &quot;BO21_salinityrange_bdmin&quot;    
+## [575] &quot;BO21_salinityrange_ss&quot;        &quot;BO21_silicateltmax_bdmax&quot;    
+## [577] &quot;BO21_silicateltmax_bdmean&quot;    &quot;BO21_silicateltmax_bdmin&quot;    
+## [579] &quot;BO21_silicateltmax_ss&quot;        &quot;BO21_silicateltmin_bdmax&quot;    
+## [581] &quot;BO21_silicateltmin_bdmean&quot;    &quot;BO21_silicateltmin_bdmin&quot;    
+## [583] &quot;BO21_silicateltmin_ss&quot;        &quot;BO21_silicatemax_bdmax&quot;      
+## [585] &quot;BO21_silicatemax_bdmean&quot;      &quot;BO21_silicatemax_bdmin&quot;      
+## [587] &quot;BO21_silicatemax_ss&quot;          &quot;BO21_silicatemean_bdmax&quot;     
+## [589] &quot;BO21_silicatemean_bdmean&quot;     &quot;BO21_silicatemean_bdmin&quot;     
+## [591] &quot;BO21_silicatemean_ss&quot;         &quot;BO21_silicatemin_bdmax&quot;      
+## [593] &quot;BO21_silicatemin_bdmean&quot;      &quot;BO21_silicatemin_bdmin&quot;      
+## [595] &quot;BO21_silicatemin_ss&quot;          &quot;BO21_silicaterange_bdmax&quot;    
+## [597] &quot;BO21_silicaterange_bdmean&quot;    &quot;BO21_silicaterange_bdmin&quot;    
+## [599] &quot;BO21_silicaterange_ss&quot;        &quot;BO21_templtmax_bdmax&quot;        
+## [601] &quot;BO21_templtmax_bdmean&quot;        &quot;BO21_templtmax_bdmin&quot;        
+## [603] &quot;BO21_templtmax_ss&quot;            &quot;BO21_templtmin_bdmax&quot;        
+## [605] &quot;BO21_templtmin_bdmean&quot;        &quot;BO21_templtmin_bdmin&quot;        
+## [607] &quot;BO21_templtmin_ss&quot;            &quot;BO21_tempmax_bdmax&quot;          
+## [609] &quot;BO21_tempmax_bdmean&quot;          &quot;BO21_tempmax_bdmin&quot;          
+## [611] &quot;BO21_tempmax_ss&quot;              &quot;BO21_tempmean_bdmax&quot;         
+## [613] &quot;BO21_tempmean_bdmean&quot;         &quot;BO21_tempmean_bdmin&quot;         
+## [615] &quot;BO21_tempmean_ss&quot;             &quot;BO21_tempmin_bdmax&quot;          
+## [617] &quot;BO21_tempmin_bdmean&quot;          &quot;BO21_tempmin_bdmin&quot;          
+## [619] &quot;BO21_tempmin_ss&quot;              &quot;BO21_temprange_bdmax&quot;        
+## [621] &quot;BO21_temprange_bdmean&quot;        &quot;BO21_temprange_bdmin&quot;        
+## [623] &quot;BO21_temprange_ss&quot;            &quot;BO22_carbonphytoltmax_bdmax&quot; 
+## [625] &quot;BO22_carbonphytoltmax_bdmean&quot; &quot;BO22_carbonphytoltmax_bdmin&quot; 
+## [627] &quot;BO22_carbonphytoltmax_ss&quot;     &quot;BO22_carbonphytoltmin_bdmax&quot; 
+## [629] &quot;BO22_carbonphytoltmin_bdmean&quot; &quot;BO22_carbonphytoltmin_bdmin&quot; 
+## [631] &quot;BO22_carbonphytoltmin_ss&quot;     &quot;BO22_carbonphytomax_bdmax&quot;   
+## [633] &quot;BO22_carbonphytomax_bdmean&quot;   &quot;BO22_carbonphytomax_bdmin&quot;   
+## [635] &quot;BO22_carbonphytomax_ss&quot;       &quot;BO22_carbonphytomean_bdmax&quot;  
+## [637] &quot;BO22_carbonphytomean_bdmean&quot;  &quot;BO22_carbonphytomean_bdmin&quot;  
+## [639] &quot;BO22_carbonphytomean_ss&quot;      &quot;BO22_carbonphytomin_bdmax&quot;   
+## [641] &quot;BO22_carbonphytomin_bdmean&quot;   &quot;BO22_carbonphytomin_bdmin&quot;   
+## [643] &quot;BO22_carbonphytomin_ss&quot;       &quot;BO22_carbonphytorange_bdmax&quot; 
+## [645] &quot;BO22_carbonphytorange_bdmean&quot; &quot;BO22_carbonphytorange_bdmin&quot; 
+## [647] &quot;BO22_carbonphytorange_ss&quot;     &quot;BO22_chloltmax_bdmax&quot;        
+## [649] &quot;BO22_chloltmax_bdmean&quot;        &quot;BO22_chloltmax_bdmin&quot;        
+## [651] &quot;BO22_chloltmax_ss&quot;            &quot;BO22_chloltmin_bdmax&quot;        
+## [653] &quot;BO22_chloltmin_bdmean&quot;        &quot;BO22_chloltmin_bdmin&quot;        
+## [655] &quot;BO22_chloltmin_ss&quot;            &quot;BO22_chlomax_bdmax&quot;          
+## [657] &quot;BO22_chlomax_bdmean&quot;          &quot;BO22_chlomax_bdmin&quot;          
+## [659] &quot;BO22_chlomax_ss&quot;              &quot;BO22_chlomean_bdmax&quot;         
+## [661] &quot;BO22_chlomean_bdmean&quot;         &quot;BO22_chlomean_bdmin&quot;         
+## [663] &quot;BO22_chlomean_ss&quot;             &quot;BO22_chlomin_bdmax&quot;          
+## [665] &quot;BO22_chlomin_bdmean&quot;          &quot;BO22_chlomin_bdmin&quot;          
+## [667] &quot;BO22_chlomin_ss&quot;              &quot;BO22_chlorange_bdmax&quot;        
+## [669] &quot;BO22_chlorange_bdmean&quot;        &quot;BO22_chlorange_bdmin&quot;        
+## [671] &quot;BO22_chlorange_ss&quot;            &quot;BO22_curvelltmax_bdmax&quot;      
+## [673] &quot;BO22_curvelltmax_bdmean&quot;      &quot;BO22_curvelltmax_bdmin&quot;      
+## [675] &quot;BO22_curvelltmax_ss&quot;          &quot;BO22_curvelltmin_bdmax&quot;      
+## [677] &quot;BO22_curvelltmin_bdmean&quot;      &quot;BO22_curvelltmin_bdmin&quot;      
+## [679] &quot;BO22_curvelltmin_ss&quot;          &quot;BO22_curvelmax_bdmax&quot;        
+## [681] &quot;BO22_curvelmax_bdmean&quot;        &quot;BO22_curvelmax_bdmin&quot;        
+## [683] &quot;BO22_curvelmax_ss&quot;            &quot;BO22_curvelmean_bdmax&quot;       
+## [685] &quot;BO22_curvelmean_bdmean&quot;       &quot;BO22_curvelmean_bdmin&quot;       
+## [687] &quot;BO22_curvelmean_ss&quot;           &quot;BO22_curvelmin_bdmax&quot;        
+## [689] &quot;BO22_curvelmin_bdmean&quot;        &quot;BO22_curvelmin_bdmin&quot;        
+## [691] &quot;BO22_curvelmin_ss&quot;            &quot;BO22_curvelrange_bdmax&quot;      
+## [693] &quot;BO22_curvelrange_bdmean&quot;      &quot;BO22_curvelrange_bdmin&quot;      
+## [695] &quot;BO22_curvelrange_ss&quot;          &quot;BO22_dissoxltmax_bdmax&quot;      
+## [697] &quot;BO22_dissoxltmax_bdmean&quot;      &quot;BO22_dissoxltmax_bdmin&quot;      
+## [699] &quot;BO22_dissoxltmax_ss&quot;          &quot;BO22_dissoxltmin_bdmax&quot;      
+## [701] &quot;BO22_dissoxltmin_bdmean&quot;      &quot;BO22_dissoxltmin_bdmin&quot;      
+## [703] &quot;BO22_dissoxltmin_ss&quot;          &quot;BO22_dissoxmax_bdmax&quot;        
+## [705] &quot;BO22_dissoxmax_bdmean&quot;        &quot;BO22_dissoxmax_bdmin&quot;        
+## [707] &quot;BO22_dissoxmax_ss&quot;            &quot;BO22_dissoxmean_bdmax&quot;       
+## [709] &quot;BO22_dissoxmean_bdmean&quot;       &quot;BO22_dissoxmean_bdmin&quot;       
+## [711] &quot;BO22_dissoxmean_ss&quot;           &quot;BO22_dissoxmin_bdmax&quot;        
+## [713] &quot;BO22_dissoxmin_bdmean&quot;        &quot;BO22_dissoxmin_bdmin&quot;        
+## [715] &quot;BO22_dissoxmin_ss&quot;            &quot;BO22_dissoxrange_bdmax&quot;      
+## [717] &quot;BO22_dissoxrange_bdmean&quot;      &quot;BO22_dissoxrange_bdmin&quot;      
+## [719] &quot;BO22_dissoxrange_ss&quot;          &quot;BO22_icecoverltmax_ss&quot;       
+## [721] &quot;BO22_icecoverltmin_ss&quot;        &quot;BO22_icecovermax_ss&quot;         
+## [723] &quot;BO22_icecovermean_ss&quot;         &quot;BO22_icecovermin_ss&quot;         
+## [725] &quot;BO22_icecoverrange_ss&quot;        &quot;BO22_icethickltmax_ss&quot;       
+## [727] &quot;BO22_icethickltmin_ss&quot;        &quot;BO22_icethickmax_ss&quot;         
+## [729] &quot;BO22_icethickmean_ss&quot;         &quot;BO22_icethickmin_ss&quot;         
+## [731] &quot;BO22_icethickrange_ss&quot;        &quot;BO22_ironltmax_bdmax&quot;        
+## [733] &quot;BO22_ironltmax_bdmean&quot;        &quot;BO22_ironltmax_bdmin&quot;        
+## [735] &quot;BO22_ironltmax_ss&quot;            &quot;BO22_ironltmin_bdmax&quot;        
+## [737] &quot;BO22_ironltmin_bdmean&quot;        &quot;BO22_ironltmin_bdmin&quot;        
+## [739] &quot;BO22_ironltmin_ss&quot;            &quot;BO22_ironmax_bdmax&quot;          
+## [741] &quot;BO22_ironmax_bdmean&quot;          &quot;BO22_ironmax_bdmin&quot;          
+## [743] &quot;BO22_ironmax_ss&quot;              &quot;BO22_ironmean_bdmax&quot;         
+## [745] &quot;BO22_ironmean_bdmean&quot;         &quot;BO22_ironmean_bdmin&quot;         
+## [747] &quot;BO22_ironmean_ss&quot;             &quot;BO22_ironmin_bdmax&quot;          
+## [749] &quot;BO22_ironmin_bdmean&quot;          &quot;BO22_ironmin_bdmin&quot;          
+## [751] &quot;BO22_ironmin_ss&quot;              &quot;BO22_ironrange_bdmax&quot;        
+## [753] &quot;BO22_ironrange_bdmean&quot;        &quot;BO22_ironrange_bdmin&quot;        
+## [755] &quot;BO22_ironrange_ss&quot;            &quot;BO22_lightbotltmax_bdmax&quot;    
+## [757] &quot;BO22_lightbotltmax_bdmean&quot;    &quot;BO22_lightbotltmax_bdmin&quot;    
+## [759] &quot;BO22_lightbotltmin_bdmax&quot;     &quot;BO22_lightbotltmin_bdmean&quot;   
+## [761] &quot;BO22_lightbotltmin_bdmin&quot;     &quot;BO22_lightbotmax_bdmax&quot;      
+## [763] &quot;BO22_lightbotmax_bdmean&quot;      &quot;BO22_lightbotmax_bdmin&quot;      
+## [765] &quot;BO22_lightbotmean_bdmax&quot;      &quot;BO22_lightbotmean_bdmean&quot;    
+## [767] &quot;BO22_lightbotmean_bdmin&quot;      &quot;BO22_lightbotmin_bdmax&quot;      
+## [769] &quot;BO22_lightbotmin_bdmean&quot;      &quot;BO22_lightbotmin_bdmin&quot;      
+## [771] &quot;BO22_lightbotrange_bdmax&quot;     &quot;BO22_lightbotrange_bdmean&quot;   
+## [773] &quot;BO22_lightbotrange_bdmin&quot;     &quot;BO22_nitrateltmax_bdmax&quot;     
+## [775] &quot;BO22_nitrateltmax_bdmean&quot;     &quot;BO22_nitrateltmax_bdmin&quot;     
+## [777] &quot;BO22_nitrateltmax_ss&quot;         &quot;BO22_nitrateltmin_bdmax&quot;     
+## [779] &quot;BO22_nitrateltmin_bdmean&quot;     &quot;BO22_nitrateltmin_bdmin&quot;     
+## [781] &quot;BO22_nitrateltmin_ss&quot;         &quot;BO22_nitratemax_bdmax&quot;       
+## [783] &quot;BO22_nitratemax_bdmean&quot;       &quot;BO22_nitratemax_bdmin&quot;       
+## [785] &quot;BO22_nitratemax_ss&quot;           &quot;BO22_nitratemean_bdmax&quot;      
+## [787] &quot;BO22_nitratemean_bdmean&quot;      &quot;BO22_nitratemean_bdmin&quot;      
+## [789] &quot;BO22_nitratemean_ss&quot;          &quot;BO22_nitratemin_bdmax&quot;       
+## [791] &quot;BO22_nitratemin_bdmean&quot;       &quot;BO22_nitratemin_bdmin&quot;       
+## [793] &quot;BO22_nitratemin_ss&quot;           &quot;BO22_nitraterange_bdmax&quot;     
+## [795] &quot;BO22_nitraterange_bdmean&quot;     &quot;BO22_nitraterange_bdmin&quot;     
+## [797] &quot;BO22_nitraterange_ss&quot;         &quot;BO22_phosphateltmax_bdmax&quot;   
+## [799] &quot;BO22_phosphateltmax_bdmean&quot;   &quot;BO22_phosphateltmax_bdmin&quot;   
+## [801] &quot;BO22_phosphateltmax_ss&quot;       &quot;BO22_phosphateltmin_bdmax&quot;   
+## [803] &quot;BO22_phosphateltmin_bdmean&quot;   &quot;BO22_phosphateltmin_bdmin&quot;   
+## [805] &quot;BO22_phosphateltmin_ss&quot;       &quot;BO22_phosphatemax_bdmax&quot;     
+## [807] &quot;BO22_phosphatemax_bdmean&quot;     &quot;BO22_phosphatemax_bdmin&quot;     
+## [809] &quot;BO22_phosphatemax_ss&quot;         &quot;BO22_phosphatemean_bdmax&quot;    
+## [811] &quot;BO22_phosphatemean_bdmean&quot;    &quot;BO22_phosphatemean_bdmin&quot;    
+## [813] &quot;BO22_phosphatemean_ss&quot;        &quot;BO22_phosphatemin_bdmax&quot;     
+## [815] &quot;BO22_phosphatemin_bdmean&quot;     &quot;BO22_phosphatemin_bdmin&quot;     
+## [817] &quot;BO22_phosphatemin_ss&quot;         &quot;BO22_phosphaterange_bdmax&quot;   
+## [819] &quot;BO22_phosphaterange_bdmean&quot;   &quot;BO22_phosphaterange_bdmin&quot;   
+## [821] &quot;BO22_phosphaterange_ss&quot;       &quot;BO22_ppltmax_bdmax&quot;          
+## [823] &quot;BO22_ppltmax_bdmean&quot;          &quot;BO22_ppltmax_bdmin&quot;          
+## [825] &quot;BO22_ppltmax_ss&quot;              &quot;BO22_ppltmin_bdmax&quot;          
+## [827] &quot;BO22_ppltmin_bdmean&quot;          &quot;BO22_ppltmin_bdmin&quot;          
+## [829] &quot;BO22_ppltmin_ss&quot;              &quot;BO22_ppmax_bdmax&quot;            
+## [831] &quot;BO22_ppmax_bdmean&quot;            &quot;BO22_ppmax_bdmin&quot;            
+## [833] &quot;BO22_ppmax_ss&quot;                &quot;BO22_ppmean_bdmax&quot;           
+## [835] &quot;BO22_ppmean_bdmean&quot;           &quot;BO22_ppmean_bdmin&quot;           
+## [837] &quot;BO22_ppmean_ss&quot;               &quot;BO22_ppmin_bdmax&quot;            
+## [839] &quot;BO22_ppmin_bdmean&quot;            &quot;BO22_ppmin_bdmin&quot;            
+## [841] &quot;BO22_ppmin_ss&quot;                &quot;BO22_pprange_bdmax&quot;          
+## [843] &quot;BO22_pprange_bdmean&quot;          &quot;BO22_pprange_bdmin&quot;          
+## [845] &quot;BO22_pprange_ss&quot;              &quot;BO22_salinityltmax_bdmax&quot;    
+## [847] &quot;BO22_salinityltmax_bdmean&quot;    &quot;BO22_salinityltmax_bdmin&quot;    
+## [849] &quot;BO22_salinityltmax_ss&quot;        &quot;BO22_salinityltmin_bdmax&quot;    
+## [851] &quot;BO22_salinityltmin_bdmean&quot;    &quot;BO22_salinityltmin_bdmin&quot;    
+## [853] &quot;BO22_salinityltmin_ss&quot;        &quot;BO22_salinitymax_bdmax&quot;      
+## [855] &quot;BO22_salinitymax_bdmean&quot;      &quot;BO22_salinitymax_bdmin&quot;      
+## [857] &quot;BO22_salinitymax_ss&quot;          &quot;BO22_salinitymean_bdmax&quot;     
+## [859] &quot;BO22_salinitymean_bdmean&quot;     &quot;BO22_salinitymean_bdmin&quot;     
+## [861] &quot;BO22_salinitymean_ss&quot;         &quot;BO22_salinitymin_bdmax&quot;      
+## [863] &quot;BO22_salinitymin_bdmean&quot;      &quot;BO22_salinitymin_bdmin&quot;      
+## [865] &quot;BO22_salinitymin_ss&quot;          &quot;BO22_salinityrange_bdmax&quot;    
+## [867] &quot;BO22_salinityrange_bdmean&quot;    &quot;BO22_salinityrange_bdmin&quot;    
+## [869] &quot;BO22_salinityrange_ss&quot;        &quot;BO22_silicateltmax_bdmax&quot;    
+## [871] &quot;BO22_silicateltmax_bdmean&quot;    &quot;BO22_silicateltmax_bdmin&quot;    
+## [873] &quot;BO22_silicateltmax_ss&quot;        &quot;BO22_silicateltmin_bdmax&quot;    
+## [875] &quot;BO22_silicateltmin_bdmean&quot;    &quot;BO22_silicateltmin_bdmin&quot;    
+## [877] &quot;BO22_silicateltmin_ss&quot;        &quot;BO22_silicatemax_bdmax&quot;      
+## [879] &quot;BO22_silicatemax_bdmean&quot;      &quot;BO22_silicatemax_bdmin&quot;      
+## [881] &quot;BO22_silicatemax_ss&quot;          &quot;BO22_silicatemean_bdmax&quot;     
+## [883] &quot;BO22_silicatemean_bdmean&quot;     &quot;BO22_silicatemean_bdmin&quot;     
+## [885] &quot;BO22_silicatemean_ss&quot;         &quot;BO22_silicatemin_bdmax&quot;      
+## [887] &quot;BO22_silicatemin_bdmean&quot;      &quot;BO22_silicatemin_bdmin&quot;      
+## [889] &quot;BO22_silicatemin_ss&quot;          &quot;BO22_silicaterange_bdmax&quot;    
+## [891] &quot;BO22_silicaterange_bdmean&quot;    &quot;BO22_silicaterange_bdmin&quot;    
+## [893] &quot;BO22_silicaterange_ss&quot;        &quot;BO22_templtmax_bdmax&quot;        
+## [895] &quot;BO22_templtmax_bdmean&quot;        &quot;BO22_templtmax_bdmin&quot;        
+## [897] &quot;BO22_templtmax_ss&quot;            &quot;BO22_templtmin_bdmax&quot;        
+## [899] &quot;BO22_templtmin_bdmean&quot;        &quot;BO22_templtmin_bdmin&quot;        
+## [901] &quot;BO22_templtmin_ss&quot;            &quot;BO22_tempmax_bdmax&quot;          
+## [903] &quot;BO22_tempmax_bdmean&quot;          &quot;BO22_tempmax_bdmin&quot;          
+## [905] &quot;BO22_tempmax_ss&quot;              &quot;BO22_tempmean_bdmax&quot;         
+## [907] &quot;BO22_tempmean_bdmean&quot;         &quot;BO22_tempmean_bdmin&quot;         
+## [909] &quot;BO22_tempmean_ss&quot;             &quot;BO22_tempmin_bdmax&quot;          
+## [911] &quot;BO22_tempmin_bdmean&quot;          &quot;BO22_tempmin_bdmin&quot;          
+## [913] &quot;BO22_tempmin_ss&quot;              &quot;BO22_temprange_bdmax&quot;        
+## [915] &quot;BO22_temprange_bdmean&quot;        &quot;BO22_temprange_bdmin&quot;        
+## [917] &quot;BO22_temprange_ss&quot;</code></pre>
+<p>Podemos baixar alguns desses <em>layers</em> diretamente no R e
+utilizar a informação para as análises.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carregue alguns layers como de oxigênio dissolvido e a</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># batimetria marinha média</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">sdmpredictors_datadir =</span> <span class="st">&quot;data/&quot;</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>bathy <span class="ot">&lt;-</span> <span class="fu">load_layers</span>(<span class="fu">c</span>(<span class="st">&quot;BO2_dissoxmean_ss&quot;</span>, <span class="st">&quot;BO_bathymean&quot;</span>))</span></code></pre></div>
+<p>Agora que nós já baixamos os dados e guardamos na forma de um raster
+chamado <strong>bathy</strong>, podemos fazer um mapa das variáveis.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bathy<span class="sc">$</span>BO2_dissoxmean_ss, <span class="at">main =</span> <span class="st">&quot;Annual Mean Dissolved Oxigen&quot;</span>)</span></code></pre></div>
+<p><img src="atividade_2_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bathy<span class="sc">$</span>BO_bathymean, <span class="at">main =</span> <span class="st">&quot;Mean Bathimetry&quot;</span>)</span></code></pre></div>
+<p><img src="atividade_2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bathy)</span></code></pre></div>
+<p><img src="atividade_2_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Para facilitar a manipulação, vamos cortar essas variáveis e utilizar
+somente a extensão do raster utilizado no dado de riqueza de
+peixes-borboleta. Para isso, vamos utilizar a função crop do pacote
+raster de acordo com o dado de riqueza.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Corta o raster de acordo com o mapa de riqueza</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>corta_ext <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">extent</span>(borb_maps<span class="sc">$</span>Richness_Raster)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>bathy_ext <span class="ot">&lt;-</span> <span class="fu">crop</span>(bathy, corta_ext)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bathy_ext)</span></code></pre></div>
+<p><img src="atividade_2_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<br><br></p>
+</div>
+</div>
+<div id="checando-projeções-de-dados-biológicos-e-climáticos"
+class="section level2" number="0.3">
+<h2><span class="header-section-number">2.3</span> Checando projeções de
+dados biológicos e climáticos</h2>
+<p>Vamos checar se as projeções do arquivo dos peixes e do mar são
+idênticas (digite projeções cartografia no Google para ter uma noção da
+tarefa). A linha ‘coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84
++towgs84=0,0,0’ tem que ser idêntica em ambos; caso contrário você
+deverá mudar as projeções de um ou do outro arquivo. Para conferir, faça
+o mapa de ambos os gráficos na mesma janela; se a sobreposição dos mapas
+não for perfeita, há um problema com a projeção.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># projeções de ambos os arquivos</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>borb_maps<span class="sc">$</span>Richness_Raster</span></code></pre></div>
+<pre><code>## class      : RasterLayer 
+## dimensions : 28, 57, 1596  (nrow, ncol, ncell)
+## resolution : 3, 3  (x, y)
+## extent     : -130, 41, -39, 45  (xmin, xmax, ymin, ymax)
+## crs        : +proj=longlat +datum=WGS84 +no_defs 
+## source     : memory
+## names      : layer 
+## values     : 0, 6  (min, max)</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>bathy_ext<span class="sc">$</span>BO2_dissoxmean_ss</span></code></pre></div>
+<pre><code>## class      : RasterLayer 
+## dimensions : 1008, 2052, 2068416  (nrow, ncol, ncell)
+## resolution : 0.08333333, 0.08333333  (x, y)
+## extent     : -130, 41, -39, 45  (xmin, xmax, ymin, ymax)
+## crs        : +proj=longlat +datum=WGS84 +no_defs 
+## source     : memory
+## names      : BO2_dissoxmean_ss 
+## values     : 191.6746, 317.3667  (min, max)</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>bathy_ext<span class="sc">$</span>BO_bathymean</span></code></pre></div>
+<pre><code>## class      : RasterLayer 
+## dimensions : 1008, 2052, 2068416  (nrow, ncol, ncell)
+## resolution : 0.08333333, 0.08333333  (x, y)
+## extent     : -130, 41, -39, 45  (xmin, xmax, ymin, ymax)
+## crs        : +proj=longlat +datum=WGS84 +no_defs 
+## source     : memory
+## names      : BO_bathymean 
+## values     : -8372, 739  (min, max)</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mapa único</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bathy_ext<span class="sc">$</span>BO2_dissoxmean_ss)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(borb_maps, <span class="at">add =</span> T)</span></code></pre></div>
+<p><img src="atividade_2_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tudo parece OK</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># porém precisamos colocar as projeções com o mesmo nome</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">projection</span>(borb_maps<span class="sc">$</span>Richness_Raster) <span class="ot">&lt;-</span> <span class="fu">projection</span>(bathy_ext<span class="sc">$</span>BO_bathymean)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># agora sim tudo idêntico</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>borb_maps<span class="sc">$</span>Richness_Raster</span></code></pre></div>
+<pre><code>## class      : RasterLayer 
+## dimensions : 28, 57, 1596  (nrow, ncol, ncell)
+## resolution : 3, 3  (x, y)
+## extent     : -130, 41, -39, 45  (xmin, xmax, ymin, ymax)
+## crs        : +proj=longlat +datum=WGS84 +no_defs 
+## source     : memory
+## names      : layer 
+## values     : 0, 6  (min, max)</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>bathy_ext<span class="sc">$</span>BO2_dissoxmean_ss</span></code></pre></div>
+<pre><code>## class      : RasterLayer 
+## dimensions : 1008, 2052, 2068416  (nrow, ncol, ncell)
+## resolution : 0.08333333, 0.08333333  (x, y)
+## extent     : -130, 41, -39, 45  (xmin, xmax, ymin, ymax)
+## crs        : +proj=longlat +datum=WGS84 +no_defs 
+## source     : memory
+## names      : BO2_dissoxmean_ss 
+## values     : 191.6746, 317.3667  (min, max)</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>bathy_ext<span class="sc">$</span>BO_bathymean</span></code></pre></div>
+<pre><code>## class      : RasterLayer 
+## dimensions : 1008, 2052, 2068416  (nrow, ncol, ncell)
+## resolution : 0.08333333, 0.08333333  (x, y)
+## extent     : -130, 41, -39, 45  (xmin, xmax, ymin, ymax)
+## crs        : +proj=longlat +datum=WGS84 +no_defs 
+## source     : memory
+## names      : BO_bathymean 
+## values     : -8372, 739  (min, max)</code></pre>
+<p><br></br></p>
+</div>
+<div id="extraindo-médias-climáticas-por-pixel" class="section level2"
+number="0.4">
+<h2><span class="header-section-number">2.4</span> Extraindo médias
+climáticas por pixel</h2>
+<p>O pixel que criamos para calcular a riqueza de espécies de peixes tem
+dimensão 3x3 graus, enquanto os pixels das variáveis marinhas são de
+0.08333333x0.08333333 graus; ou seja, os dados climáticos são muito mais
+precisos que <strong>borb_maps</strong>. A definição do tamanho do pixel
+da informação biológica depende da sua pergunta, mas, em geral, os
+macroecólogos utilizam 1x1 grau ou 0.5x0.5 grau. O fato é que para cada
+célula nós temos muitas variáveis marinhas, por isso, vamos extrair a
+média dos valores dentro de cada célula de peixes. Em seguida,
+precisamos unir ambas informações para termos uma correspondência entre
+a riqueza de peixes e, por exemplo, a quantidade média de oxigênio
+dissolvido por pixel. Para isso usaremos a função
+<code>lets.addvar</code>.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extrair e fundir variáveis climáticas aos mamíferos</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>borb_mar <span class="ot">&lt;-</span> <span class="fu">lets.addvar</span>(borb_maps, bathy_ext, <span class="at">fun =</span> mean)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># veja um pedaço da matriz resultante</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>borb_mar[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">25</span><span class="sc">:</span><span class="dv">27</span>)]</span></code></pre></div>
+<pre><code>##      Longitude(x) Latitude(y) Amphichaetodon melbae Chaetodon auriga
+## [1,]        -68.5        43.5                     0                0
+## [2,]        -71.5        40.5                     0                0
+## [3,]        -68.5        40.5                     0                0
+## [4,]        -74.5        37.5                     0                0
+## [5,]        -80.5        31.5                     0                0
+##      Chaetodon capistratus Prognathodes brasiliensis Prognathodes carlhubbsi
+## [1,]                     0                         0                       0
+## [2,]                     1                         0                       0
+## [3,]                     0                         0                       0
+## [4,]                     1                         0                       0
+## [5,]                     1                         0                       0
+##      Prognathodes dichrous
+## [1,]                     0
+## [2,]                     0
+## [3,]                     0
+## [4,]                     0
+## [5,]                     0</code></pre>
+</div>
+<div id="calculando-relações-simples-entre-riqueza-e-os-preditores"
+class="section level2" number="0.5">
+<h2><span class="header-section-number">2.5</span> Calculando relações
+simples entre riqueza e os preditores</h2>
+<div id="calculando-a-riqueza-de-espécies" class="section level3"
+number="0.5.1">
+<h3><span class="header-section-number">2.5.1</span> Calculando a
+riqueza de espécies</h3>
+<p>Com a matriz final já esta praticamente pronta, nos só precisamos
+incluir uma nova coluna onde calcularemos a riqueza de espécies. Para
+isso, basta somar a ocorrência de todas as espécies ao longo das linhas
+desta matriz (exceto as duas primeiras e as duas últimas que não possuem
+informação de ocorrência) e teremos ao final a riqueza de espécies.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Precisamos transformar a matriz em um data.frame para facilitar</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>borb_mar <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(borb_mar)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular a riqueza de espécies</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>borb_mar<span class="sc">$</span>riq <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(borb_mar[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">32</span><span class="sc">:</span><span class="dv">33</span>)])</span></code></pre></div>
+<p>Parece haver relações entre a batimetria ou a quantidade de oxigênio
+dissolvido e a riqueza de peixes-borboleta?</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfro =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(riq <span class="sc">~</span> BO_bathymean_mean, borb_mar, <span class="at">main =</span> <span class="st">&quot;Batimetria x Riqueza&quot;</span>)</span></code></pre></div>
+<p><img src="atividade_2_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(riq <span class="sc">~</span> BO2_dissoxmean_ss_mean, borb_mar, <span class="at">main =</span> <span class="st">&quot;Oxigênio dissolvido x Riqueza&quot;</span>)</span></code></pre></div>
+<p><img src="atividade_2_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
+</div>
+</div>
+<div id="bibliography" class="section level2" number="0.6">
+<h2><span class="header-section-number">2.6</span> Bibliography</h2>
+<p>Autores: Murilo S. Dias, Juan P. Quimbayo, Thiago Mendes, Mariana
+Bender, Augusto Flores. Adaptado por: Cesar Cordeiro</p>
+<ol style="list-style-type: decimal">
+<li>Vilela, B. &amp; Villalobos, F. (2015). letsR: A new r package for
+data handling and analysis in macroecology. Methods in Ecology and
+Evolution, 6, 1229–1234.</li>
+</ol>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
