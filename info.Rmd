@@ -7,7 +7,6 @@ output:
     toc: yes
     toc_float: true
     number_sections: true
-    code_folding: "show"
     theme: default
 ---
 
@@ -26,13 +25,13 @@ Durante o curso usaremos o método de ensino construtivo, o qual coloca o aluno 
 Todas as aulas teóricas serão realizadas de forma presencial e as aulas práticas terão momentos de interação com os professores e de trabalho autônomo dos participantes.
 
 -   Duração: 08:30-12:30 / 14:00 - 18:00
--   Dias 07, 08, 09, 28, 29 e 30 de novembro <br><br>
+-   Dias: 07, 08, 09, 28, 29 e 30 de novembro <br><br>
 
 **Avaliações**
 
 -   Atividades síncronas
 -   Atividades assíncronas
--   Debates
+-   Debates (seminários)
 -   Avaliação final (trabalho autoral)
 
 <br><br>
