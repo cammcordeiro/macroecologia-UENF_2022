@@ -36,9 +36,9 @@ A [**atividade 1**](atividade_1.html) consiste em um exercício de mapas de dist
 
 #### *Exercícios de verificação de padrões de distribuição de espécies* {.unnumbered}
 
-<center><img src="figs/git_4.png" style="width:50%"/></center>
+<center>![](atividade_2_files/figure-html/unnamed-chunk-5-1.png){width="500"}</center>
 
-A [**atividade 2**](atividade_2.html) .
+A [**atividade 2**](atividade_2.html) utilizará o mapa gerado na atividade 1 e camadas de dados abióticos para investigarmos relações entre características das espécies analisadas e gradientes ambientais.
 <br><br>
 
 ------------------------------------------------------------------------
@@ -47,11 +47,11 @@ A [**atividade 2**](atividade_2.html) .
 
 #### *Exercícios de redes de interação* {.unnumbered}
 
-<center><img src="atividade3_files/figure-html/unnamed-chunk-13-1.png" style="width:70%"/></center>
+<center>![Foto: Reprodução \| Banco de dados Web of Life](images/rede%20de%20interacao.png){width="500"}</center>
 
 <br><br>
 
-A [**atividade 3**](atividade_3.html) .
+Na [**atividade 3**](atividade_3.html) iremos aplicar ferramentas básicas de construção de redes de interação análise de grafos.
 <br><br>
 
 ------------------------------------------------------------------------
@@ -64,7 +64,7 @@ A [**atividade 3**](atividade_3.html) .
 
 <br><br>
 
-A [**atividade 4**](atividade_4.html).
+A [**atividade 4**](atividade_4.html) inclui uma análise das relações filogenéticas dos peixes-borboleta e um cálculo básico de descritores funcionais.
 <br><br>
 
 ------------------------------------------------------------------------
