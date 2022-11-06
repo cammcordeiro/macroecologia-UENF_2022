@@ -16,7 +16,7 @@ navbar:
       icon: fas fa-chart-bar
   right:
     - text: "GitHub Repo"
-      href: https://github.com/cammcordeiro/macroecologia_02-UENF_2022
+      href: https://github.com/cammcordeiro/macroecologia-UENF_2022
       icon: "fab fa-github"
 
 output_dir: "."

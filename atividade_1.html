@@ -449,7 +449,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/cammcordeiro/macroecologia_02-2022_UENF">
+  <a href="https://github.com/cammcordeiro/macroecologia-UENF_2022">
     <span class="fab fa-github"></span>
      
     GitHub Repo
@@ -484,10 +484,10 @@ text-align: justify}
 <h1 class="unnumbered">Atividade 1</h1>
 <p><br></br></p>
 <div id="primeiros-passos" class="section level2" number="0.1">
-<h2><span class="header-section-number">0.1</span> Primeiros passos</h2>
+<h2><span class="header-section-number">1.1</span> Primeiros passos</h2>
 <div id="download-e-manipulação-de-dados-geográficos"
 class="section level3" number="0.1.1">
-<h3><span class="header-section-number">0.1.1</span> Download e
+<h3><span class="header-section-number">1.1.1</span> Download e
 manipulação de dados geográficos</h3>
 <div id="obtendo-dados-e-criando-mapas"
 class="section level4 unnumbered">
@@ -521,10 +521,10 @@ cole os seguintes códigos em no script ou terminal.</p>
 </div>
 </div>
 <div id="dados-de-peixes-recifais" class="section level2" number="0.2">
-<h2><span class="header-section-number">0.2</span> Dados de peixes
+<h2><span class="header-section-number">1.2</span> Dados de peixes
 recifais</h2>
 <div id="onde-encontrar-os-dados" class="section level3" number="0.2.1">
-<h3><span class="header-section-number">0.2.1</span> Onde encontrar os
+<h3><span class="header-section-number">1.2.1</span> Onde encontrar os
 dados</h3>
 <p>Muitos são os repositórios de dados espaciais. Dados geográficos para
 os organismos mais comumente acessados (e.g., mamíferos, anuros, etc)
@@ -543,7 +543,7 @@ exercícios descritos abaixo.</p>
 </div>
 <div id="preparando-e-baixando-o-arquivo" class="section level3"
 number="0.2.2">
-<h3><span class="header-section-number">0.2.2</span> Preparando e
+<h3><span class="header-section-number">1.2.2</span> Preparando e
 baixando o arquivo</h3>
 <p>Inicialmente, precisamos criar uma pasta no diretório de trabalho que
 receberá o arquivo depois de terminado o download. Para criar a pasta,
@@ -554,7 +554,7 @@ será preciso executar os seguintes códigos.</p>
 </div>
 <div id="exemplo-baixando-dados-da-iucn-caso-precisem"
 class="section level3" number="0.2.3">
-<h3><span class="header-section-number">0.2.3</span> Exemplo baixando
+<h3><span class="header-section-number">1.2.3</span> Exemplo baixando
 dados da IUCN (CASO PRECISEM!!!)</h3>
 <p>Em seguida, defininos o link para download dos dados (de acordo com o
 endereço registrado no site da IUCN), extraímos o arquivo zip e
@@ -581,11 +581,11 @@ pois este é um campo em franco desenvolvimento.</p>
 </div>
 <div id="distribuição-das-espécies-peixes-borboletas"
 class="section level3" number="0.2.4">
-<h3><span class="header-section-number">0.2.4</span> Distribuição das
+<h3><span class="header-section-number">1.2.4</span> Distribuição das
 espécies peixes borboletas</h3>
 <p>Para importar os dados e ver o que tem dentro deles, faça:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importanto o shapefile</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>borb <span class="ot">&lt;-</span> <span class="fu">readOGR</span>(<span class="at">dsn =</span> <span class="st">&quot;data/Chaetodontidae_NewWorld.shp&quot;</span>)</span></code></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>borb <span class="ot">&lt;-</span> rgdal<span class="sc">::</span><span class="fu">readOGR</span>(<span class="at">dsn =</span> <span class="st">&quot;data/Chaetodontidae_NewWorld.shp&quot;</span>)</span></code></pre></div>
 <pre><code>## OGR data source with driver: ESRI Shapefile 
 ## Source: &quot;/Users/cesarcordeiro/git/macroecologia-UENF_2022/data/Chaetodontidae_NewWorld.shp&quot;, layer: &quot;Chaetodontidae_NewWorld&quot;
 ## with 29 features
@@ -600,34 +600,27 @@ espécies peixes borboletas</h3>
 ## 3   4363   Prognathodes obliquus        1      1        1     IUCN       2010
 ## 4 165646 Prognathodes guyanensis        1      1        1     IUCN       2010
 ## 5 165621        Prognathodes aya        1      1        1     IUCN       2010
-##                                                citation source dist_comm island
-## 0 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;
-## 1 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;
-## 2 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;
-## 3 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;
-## 4 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;
-## 5 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;
-##   subspecies subpop            legend tax_comm  kingdom   phylum          class
-## 0       &lt;NA&gt;   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII
-## 1       &lt;NA&gt;   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII
-## 2       &lt;NA&gt;   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII
-## 3       &lt;NA&gt;   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII
-## 4       &lt;NA&gt;   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII
-## 5       &lt;NA&gt;   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII
-##        order_         family        genus category marine terrestial freshwater
-## 0 PERCIFORMES CHAETODONTIDAE Prognathodes       LC   True      False      False
-## 1 PERCIFORMES CHAETODONTIDAE    Chaetodon       LC   True      False      False
-## 2 PERCIFORMES CHAETODONTIDAE    Chaetodon       LC   True      False      False
-## 3 PERCIFORMES CHAETODONTIDAE Prognathodes       DD   True      False      False
-## 4 PERCIFORMES CHAETODONTIDAE Prognathodes       LC   True      False      False
-## 5 PERCIFORMES CHAETODONTIDAE Prognathodes       LC   True      False      False
-##   SHAPE_Leng SHAPE_Area
-## 0 555.777854 221.512669
-## 1 191.209637  70.240590
-## 2 676.173219 327.189811
-## 3   5.579774   2.477472
-## 4 623.898171 213.882545
-## 5 283.786494  74.748053</code></pre>
+##                                                citation source dist_comm island subspecies
+## 0 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;       &lt;NA&gt;
+## 1 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;       &lt;NA&gt;
+## 2 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;       &lt;NA&gt;
+## 3 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;       &lt;NA&gt;
+## 4 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;       &lt;NA&gt;
+## 5 International Union for Conservation of Nature (IUCN)   &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;       &lt;NA&gt;
+##   subpop            legend tax_comm  kingdom   phylum          class      order_
+## 0   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII PERCIFORMES
+## 1   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII PERCIFORMES
+## 2   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII PERCIFORMES
+## 3   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII PERCIFORMES
+## 4   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII PERCIFORMES
+## 5   &lt;NA&gt; Extant (resident)     &lt;NA&gt; ANIMALIA CHORDATA ACTINOPTERYGII PERCIFORMES
+##           family        genus category marine terrestial freshwater SHAPE_Leng SHAPE_Area
+## 0 CHAETODONTIDAE Prognathodes       LC   True      False      False 555.777854 221.512669
+## 1 CHAETODONTIDAE    Chaetodon       LC   True      False      False 191.209637  70.240590
+## 2 CHAETODONTIDAE    Chaetodon       LC   True      False      False 676.173219 327.189811
+## 3 CHAETODONTIDAE Prognathodes       DD   True      False      False   5.579774   2.477472
+## 4 CHAETODONTIDAE Prognathodes       LC   True      False      False 623.898171 213.882545
+## 5 CHAETODONTIDAE Prognathodes       LC   True      False      False 283.786494  74.748053</code></pre>
 <p>Este último comando te permitirá ver tudo todos os descritores (i.e.,
 colunas) dentro do arquivo .shp. Agora precisaremos fazer uma mapa para
 visualizar o que há dentro deste objeto borb que acabamos de criar.
@@ -660,7 +653,7 @@ espécie.</p>
 </div>
 <div id="riqueza-de-espécies-na-américa" class="section level1"
 number="1">
-<h1><span class="header-section-number">1</span> Riqueza de espécies na
+<h1><span class="header-section-number">2</span> Riqueza de espécies na
 América</h1>
 <p>A manipulação e tratamento de dados espaciais tipo .shp exigem um
 profundo conhecimento sobre os dados e a forma como eles são
@@ -801,18 +794,12 @@ seus argumentos).</p>
 ## [31] &quot;Prognathodes obliquus&quot;</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># presence/absence matrix</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>borb_pa[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
-<pre><code>##      Longitude(x) Latitude(y) Amphichaetodon melbae Chaetodon auriga
-## [1,]        -67.5        43.5                     0                0
-## [2,]        -73.5        40.5                     0                0
-## [3,]        -70.5        40.5                     0                0
-## [4,]        -67.5        40.5                     0                0
-## [5,]        -76.5        34.5                     0                0
-##      Chaetodon capistratus
-## [1,]                     0
-## [2,]                     1
-## [3,]                     1
-## [4,]                     0
-## [5,]                     1</code></pre>
+<pre><code>##      Longitude(x) Latitude(y) Amphichaetodon melbae Chaetodon auriga Chaetodon capistratus
+## [1,]        -67.5        43.5                     0                0                     0
+## [2,]        -73.5        40.5                     0                0                     1
+## [3,]        -70.5        40.5                     0                0                     1
+## [4,]        -67.5        40.5                     0                0                     0
+## [5,]        -76.5        34.5                     0                0                     1</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Position of cells</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(borb_pa[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">asp =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="atividade_1_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
@@ -820,36 +807,26 @@ seus argumentos).</p>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">dim</span>(borb_pa)[<span class="dv">2</span>]</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>occ <span class="ot">&lt;-</span> <span class="fu">colSums</span>(borb_pa[, <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span>n)])</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>occ</span></code></pre></div>
-<pre><code>##         Amphichaetodon melbae              Chaetodon auriga 
-##                             1                            17 
-##         Chaetodon capistratus        Chaetodon flavirostris 
-##                            37                            10 
-##            Chaetodon hoefleri           Chaetodon humeralis 
-##                            12                            11 
-##               Chaetodon litus              Chaetodon lunula 
-##                             2                            13 
-##           Chaetodon mertensii              Chaetodon meyeri 
-##                            10                             3 
-##           Chaetodon ocellatus          Chaetodon pelewensis 
-##                            45                            12 
-##            Chaetodon robustus      Chaetodon sanctaehelenae 
-##                             8                             7 
-##         Chaetodon sedentarius            Chaetodon striatus 
-##                            41                            41 
-##        Chaetodon unimaculatus        Forcipiger flavissimus 
-##                            12                            22 
-## Hemitaurichthys multispinosus    Johnrandallia nigrirostris 
-##                             1                            10 
-##        Prognathodes aculeatus              Prognathodes aya 
-##                            26                             9 
-##     Prognathodes brasiliensis       Prognathodes carlhubbsi 
-##                             3                             8 
-##         Prognathodes dichrous         Prognathodes falcifer 
-##                             4                             6 
-##       Prognathodes guyanensis        Prognathodes marcellae 
-##                            22                             7 
-##         Prognathodes obliquus 
-##                             1</code></pre>
+<pre><code>##         Amphichaetodon melbae              Chaetodon auriga         Chaetodon capistratus 
+##                             1                            17                            37 
+##        Chaetodon flavirostris            Chaetodon hoefleri           Chaetodon humeralis 
+##                            10                            12                            11 
+##               Chaetodon litus              Chaetodon lunula           Chaetodon mertensii 
+##                             2                            13                            10 
+##              Chaetodon meyeri           Chaetodon ocellatus          Chaetodon pelewensis 
+##                             3                            45                            12 
+##            Chaetodon robustus      Chaetodon sanctaehelenae         Chaetodon sedentarius 
+##                             8                             7                            41 
+##            Chaetodon striatus        Chaetodon unimaculatus        Forcipiger flavissimus 
+##                            41                            12                            22 
+## Hemitaurichthys multispinosus    Johnrandallia nigrirostris        Prognathodes aculeatus 
+##                             1                            10                            26 
+##              Prognathodes aya     Prognathodes brasiliensis       Prognathodes carlhubbsi 
+##                             9                             3                             8 
+##         Prognathodes dichrous         Prognathodes falcifer       Prognathodes guyanensis 
+##                             4                             6                            22 
+##        Prognathodes marcellae         Prognathodes obliquus 
+##                             7                             1</code></pre>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(occ, <span class="at">main =</span> <span class="st">&quot;Ocorrências por pixel&quot;</span>, <span class="at">las=</span><span class="dv">1</span>)</span>
@@ -898,7 +875,7 @@ valor em m2, precisamos converser em km2 dividindo por 1000000 (1000m x
 <p><br></br></p>
 </div>
 <div id="referências" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Referências</h1>
+<h1><span class="header-section-number">3</span> Referências</h1>
 <p>Autores: Murilo S. Dias, Juan P. Quimbayo, Thiago Mendes, Mariana
 Bender, Augusto Flores. Adaptado por: Cesar Cordeiro</p>
 <ul>
