@@ -3,7 +3,7 @@ pagetitle: Atividade 2
 output:
   html_document:
     pandoc_args: [
-      "--number-offset=0"]
+      "--number-offset=2"]
     toc: yes
     toc_float: true
     number_sections: true
@@ -30,22 +30,34 @@ autores: Murilo S. Dias, Juan P. Quimbayo, Thiago Mendes, Mariana Bender, August
 
 <br></br>
 
-Para esta atividade, vamos precisar dos arquivos utilizados e criados na [atividade 1](link). Caso não tenha carregado estes dados ainda, siga os passos indicados na atividade anterior e depois retorne para esta atividade. 
+## Dados de peixes recifais
+Para esta atividade, vamos precisar dos arquivos utilizados e criados na [atividade 1](atividade_1.html).
+Para a atividade 4, partiremos dos primeiros passos da atividade 1. Para tal, bastar rodar este `chunck` de código abaixo. Caso já esteja com este arquivo preparado no ambiente do RStudio, ignore este passo.
+
+```{r}
+
+library(letsR)
+library(tidyverse)
+
+# Importanto o shapefile
+borb <- rgdal::readOGR(dsn = "data/Chaetodontidae_NewWorld.shp")
+
+# Criando raster
+borb_maps <- lets.presab(borb, resol = 3, 
+                         xmn = -150, xmx = 40, # America range
+                         ymn = -38, ymx = 45, # America range
+                         cover = 0.01)
+
+```
+
 
 ## Preditores climáticos globais
 
 ### Baixando, carregando e conferindo os dados marinhos
 
-Agora que já conhecemos como a riqueza de espécies varia ao longo do espaço, precisamos tentar descobrir
-quais são os mecanismos por trás dos padrões espaciais. Para isso, vamos testar o efeito de variáveis
-climáticas na riqueza de espécies em questão por meio de modelos lineares simples. Antes disso, devemos
-recorrer a uma base de dados previamente estabelecida que nos forneça as variáveis climáticas de interesse.
-Para isso, você pode procurar no site do [BioOracle]() e encontrará muitos dos dados de que vai precisar.
-Você também precisará de uma conexão internet para baixar os dados do BioOracle (~ 11MB).
+Agora que já conhecemos como a riqueza de espécies varia ao longo do espaço, precisamos tentar descobrir quais são os mecanismos por trás dos padrões espaciais. Para isso, vamos testar o efeito de variáveis climáticas na riqueza de espécies em questão por meio de modelos lineares simples. Antes disso, devemos recorrer a uma base de dados previamente estabelecida que nos forneça as variáveis climáticas de interesse. 
+Para isso, você pode procurar no site do [BioOracle](https://www.bio-oracle.org) e encontrará muitos dos dados de que vai precisar. Você também precisará de uma conexão internet para baixar os dados do BioOracle (~ 11MB). Vamos utilizar o pacote `sdmpredictors` para obter diretamente estes dados. Assim, nossas análises tanto espaciais (SIG quanto estatísticas) ficarão todas dentro do R. Isto facilita a manipulação das planilhas e a realização dos modelos. Vamos explorar algumas das variáveis marinhas disponíveis para o mundo. 
 
-Vamos utilizar o pacote sdmpredictors para obter diretamente estes dados. Assim, nossas análises tanto
-espaciais (SIG quanto estatísticas) ficarão todas dentro do R. Isto facilita a manipulação das planilhas e
-a realização dos modelos. Vamos explorar algumas das variáveis marinhas disponíveis para o mundo.
 Execute as linhas abaixo e gaste um tempo para ler as informações e variáveis disponíveis.
 
 ```{r}

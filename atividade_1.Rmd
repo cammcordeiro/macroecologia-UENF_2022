@@ -3,7 +3,7 @@ pagetitle: Atividade 1
 output:
   html_document:
     pandoc_args: [
-      "--number-offset=0"]
+      "--number-offset=1"]
     toc: yes
     toc_float: true
     number_sections: true
@@ -104,7 +104,7 @@ Para importar os dados e ver o que tem dentro deles, faça:
 ```{r}
 
 # Importanto o shapefile
-borb <- readOGR(dsn = "data/Chaetodontidae_NewWorld.shp")
+borb <- rgdal::readOGR(dsn = "data/Chaetodontidae_NewWorld.shp")
 
 ```
 
@@ -135,7 +135,6 @@ colors <- colors[position]
 map("world", xlim = c(-150, 40))
 box()
 plot(borb, col = colors, lty = 0, add = T)
-
 
 ```
 

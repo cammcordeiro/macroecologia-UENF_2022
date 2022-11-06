@@ -20,10 +20,9 @@ body {
 text-align: justify}
 </style>
 ```
-## **Atividade 1**  {.unnumbered}
+## **Atividade 1** {.unnumbered}
 
-
-#### *Exercícios de cálculo de índices de diversidade com dados de bases abertas*  {.unnumbered}
+#### *Exercícios de cálculo de índices de diversidade com dados de bases abertas* {.unnumbered}
 
 <center>![](atividade_1_files/figure-html/unnamed-chunk-7-1.png){width="550"}</center>
 
@@ -39,10 +38,7 @@ A [**atividade 1**](atividade_1.html) consiste em um exercício de mapas de dist
 
 <center><img src="figs/git_4.png" style="width:50%"/></center>
 
-
-
-A [**atividade 2**](atividade_2.html) 
-.
+A [**atividade 2**](atividade_2.html) .
 <br><br>
 
 ------------------------------------------------------------------------
@@ -55,7 +51,6 @@ A [**atividade 2**](atividade_2.html)
 
 <br><br>
 
-
 A [**atividade 3**](atividade_3.html) .
 <br><br>
 
@@ -63,9 +58,9 @@ A [**atividade 3**](atividade_3.html) .
 
 ## **Atividade 4** {.unnumbered}
 
-#### *Exercícios de cálculo de indicadores de diversidade funcional* {.unnumbered}
+#### *Exercícios de cálculo de indicadores de diversidade filogenética e funcional* {.unnumbered}
 
-<center><img src="figs/rmarkdown_icon.png" style="width:30%"/></center>
+<center>![](atividade_4_files/figure-html/unnamed-chunk-4-1.png){width="600"}</center>
 
 <br><br>
 
