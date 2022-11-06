@@ -82,8 +82,8 @@ A [**atividade 4**](atividade4.html).
 
 <br><br>
 
-A [**atividade 5**](atividade5.html) finaliza o processo de ferramentas básicas de compartilhamento e reprodutibilidade de dados científicos.
-Nesta atividade, os participantes irão tranformar as rotinas criadas nas atividades anteriores em um website.
+A [**atividade 5**](atividade5.html) é um adicional de ferramentas básicas de compartilhamento e reprodutibilidade de dados científicos.
+Nesta atividade, os participantes irão tranformar as rotinas criadas nas atividades anteriores em documento reprodutível.
 <br><br>
 
 ------------------------------------------------------------------------
