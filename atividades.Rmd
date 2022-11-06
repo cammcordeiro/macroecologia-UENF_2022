@@ -41,7 +41,7 @@ A [**atividade 1**](atividade_1.html) consiste em um exercício de mapas de dist
 
 
 
-A [**atividade 2**](atividade2.html) 
+A [**atividade 2**](atividade_2.html) 
 .
 <br><br>
 
@@ -56,7 +56,7 @@ A [**atividade 2**](atividade2.html)
 <br><br>
 
 
-A [**atividade 3**](atividade3.html) .
+A [**atividade 3**](atividade_3.html) .
 <br><br>
 
 ------------------------------------------------------------------------
@@ -69,7 +69,7 @@ A [**atividade 3**](atividade3.html) .
 
 <br><br>
 
-A [**atividade 4**](atividade4.html).
+A [**atividade 4**](atividade_4.html).
 <br><br>
 
 ------------------------------------------------------------------------
@@ -82,7 +82,7 @@ A [**atividade 4**](atividade4.html).
 
 <br><br>
 
-A [**atividade 5**](atividade5.html) é um adicional de ferramentas básicas de compartilhamento e reprodutibilidade de dados científicos.
+A [**atividade 5**](Atividade_5.html) é um adicional de ferramentas básicas de compartilhamento e reprodutibilidade de dados científicos.
 Nesta atividade, os participantes irão tranformar as rotinas criadas nas atividades anteriores em documento reprodutível.
 <br><br>
 
