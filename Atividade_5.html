@@ -11,7 +11,7 @@
 
 
 
-<title>Atividades</title>
+<title>Atividade 5</title>
 
 <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -377,86 +377,137 @@ div.tocify {
 body {
 text-align: justify}
 </style>
-<div id="atividade-1" class="section level2 unnumbered">
-<h2 class="unnumbered"><strong>Atividade 1</strong></h2>
-<div
-id="exercícios-de-cálculo-de-índices-de-diversidade-com-dados-de-bases-abertas"
-class="section level4 unnumbered">
-<h4 class="unnumbered"><em>Exercícios de cálculo de índices de
-diversidade com dados de bases abertas</em></h4>
-<center>
-<img src="atividade_1_files/figure-html/unnamed-chunk-7-1.png"
-width="550" />
-</center>
-<p>A <a href="atividade_1.html"><strong>atividade 1</strong></a>
-consiste em um exercício de mapas de distribuição a partir de bases
-abertas, neste caso, com dados do repositório da <em>International Union
-for Conservation of Nature</em> <a
-href="https://www.iucnredlist.org/resources/spatial-data-download">IUCN</a>.</p>
+<div id="atividade-5" class="section level1 unnumbered">
+<h1 class="unnumbered"><strong>Atividade 5</strong></h1>
+<p>A atividade 5 vai incluir algumas ferramentas para podermos para
+podermos criar roteiros que incluem texto e análises mesclados em um só
+documento. Isso facilita o compartilhamento entre colaboradores.</p>
 <p><br><br></p>
-<hr />
-</div>
-</div>
-<div id="atividade-2" class="section level2 unnumbered">
-<h2 class="unnumbered"><strong>Atividade 2</strong></h2>
-<div
-id="exercícios-de-verificação-de-padrões-de-distribuição-de-espécies"
-class="section level4 unnumbered">
-<h4 class="unnumbered"><em>Exercícios de verificação de padrões de
-distribuição de espécies</em></h4>
-<center>
-<img src="figs/git_4.png" style="width:50%"/>
-</center>
-<p>A <a href="atividade2.html"><strong>atividade 2</strong></a> .
+<div id="r-markdown" class="section level2 unnumbered">
+<h2 class="unnumbered"><code>R Markdown</code></h2>
+<p>Esta atividade consiste em tranformar a rotina criada nos exercícios
+anteriores em um formato mais amigável de ser compartilhado. Muitas
+vezes criamos o próprio estilo ao construir rotinas e deixamos alguns
+detalhes e explicações de lado. No entanto, para que outras pessoas
+possam construir em conjunto é importante que todos os detalhes estejam
+descritos na rotina. Os documentos no formato <code>markdown</code>
+permitem mesclar trechos de texto com códigos, o que facilita muito a
+explicação dos passos utilizados para criarmos documentos, explicar o
+racional de análises em uma pesquisa, produzir conteúdo didático e
+outros. Quando já entendemos o formato <code>R Markdown</code> iremos
+iniciar todo o processo já construindo este documento e não transferindo
+o código como iremos fazer aqui. Esse método foi escolhido para mostrar
+que além de podermos criar de maneira mais organizada nossas futuras
+rotinas, podemos lidar com um ‘passivo’ das rotinas associadas a
+trabalhos mais antigos para podermos nos organizar melhor, e aprender no
+caminho.</p>
+<p>Os passos aplicados aqui serão os mesmos para começar um documento do
+zero ou para fazermos essa transferência proposta no exercício.
 <br><br></p>
-<hr />
-</div>
-</div>
-<div id="atividade-3" class="section level2 unnumbered">
-<h2 class="unnumbered"><strong>Atividade 3</strong></h2>
-<div id="exercícios-de-redes-de-interação"
-class="section level4 unnumbered">
-<h4 class="unnumbered"><em>Exercícios de redes de interação</em></h4>
+<ul>
+<li>O primeiro passo é criar um documento R Markdown no RStudio. Para
+isso, clique no menu <code>File</code> -&gt; <code>New file</code> -&gt;
+<code>R Markdown</code>.</li>
+</ul>
 <center>
-<img src="atividade3_files/figure-html/unnamed-chunk-13-1.png" style="width:70%"/>
+<p><img src="images/rmarkdown1.png" style="width:60%"/></p>
 </center>
 <p><br><br></p>
-<p>A <a href="atividade3.html"><strong>atividade 3</strong></a> .
-<br><br></p>
-<hr />
-</div>
-</div>
-<div id="atividade-4" class="section level2 unnumbered">
-<h2 class="unnumbered"><strong>Atividade 4</strong></h2>
-<div id="exercícios-de-cálculo-de-indicadores-de-diversidade-funcional"
-class="section level4 unnumbered">
-<h4 class="unnumbered"><em>Exercícios de cálculo de indicadores de
-diversidade funcional</em></h4>
+<ul>
+<li>Em seguida, escolhemos o tipo de <em>output</em> (vamos usar o
+padrão HTML), dar um nome ao arquivo (<strong>atividade4</strong>) e
+clicar em <code>OK</code>.</li>
+</ul>
 <center>
-<img src="figs/rmarkdown_icon.png" style="width:30%"/>
+<p><img src="images/rmarkdown2.png" style="width:60%"/></p>
 </center>
 <p><br><br></p>
-<p>A <a href="atividade4.html"><strong>atividade 4</strong></a>.
-<br><br></p>
-<hr />
-</div>
-</div>
-<div id="atividade-5" class="section level2 unnumbered">
-<h2 class="unnumbered"><strong>Atividade 5</strong></h2>
-<div
-id="exercícios-de-confecção-de-roteiro-reprodutível-de-aquisição-e-análise-de-dados-macroecológicos"
-class="section level4 unnumbered">
-<h4 class="unnumbered"><em>Exercícios de confecção de roteiro
-reprodutível de aquisição e análise de dados macroecológicos</em></h4>
+<ul>
+<li>O documento criado já apresenta um exemplo com o cabeçalho e alguns
+<code>chunks</code> de código.</li>
+</ul>
 <center>
-<img src="images/data_cycle.png" style="width:50%"/>
+<p><img src="images/rmarkdown3.png" style="width:60%"/></p>
 </center>
 <p><br><br></p>
-<p>A <a href="atividade5.html"><strong>atividade 5</strong></a> finaliza
-o processo de ferramentas básicas de compartilhamento e
-reprodutibilidade de dados científicos. Nesta atividade, os
-participantes irão tranformar as rotinas criadas nas atividades
-anteriores em um website. <br><br></p>
+<p>Antes mesmo de editarmos o documento, podemos ter um ideia de como
+será sua versão final clicando no botão <code>Knit</code> no alto da
+tela de comandos.</p>
+<center>
+<p><img src="images/rmarkdown4.png" style="width:60%"/></p>
+</center>
+<p><br><br></p>
+<ul>
+<li>Agora, vamos limpar o documento e começar a inserir nossos próprios
+<code>chuncks</code> de código utilizado no <em>script</em> de algum
+exercício anterior. Em seguida, basta copiar os trechos de código já
+criados dentro de cada <code>chunk</code> seguindo uma lógica dos passos
+utilizados em cada etapa.</li>
+</ul>
+<p>Mas não se esqueça, daqui pra frente, já pode começar seu documentos
+direto como <code>R Markdown</code>. <br><br></p>
+<p>Um complemento e uma boa prática para o compartilhamento de dados é a
+utilização de ferramentas de colaboração como o <a
+href="https://git-scm.com">git</a> e o <a
+href="https://github.com">GitHub</a>. Para se aprofundar no assunto,
+você pode começar por este <a
+href="https://cammcordeiro.github.io/ciencia_colab/atividade4.html#42_GitHub">tutorial</a>
+ou buscar mais informações na internet. <br><br></p>
+</div>
+<div id="extra" class="section level2 unnumbered">
+<h2 class="unnumbered"><strong>Extra</strong></h2>
+<p>Caso você já tenha se aventurado pelo GitHub ou tenha feito o
+tutorial indicado acima, vamos passar para uma atividade extra que, além
+de facilitar o compartilhamento, dá visibilidade aos documentos gerados
+por você por meio de um <em>website</em> hospedado no GitHub e
+completamente gratuito.</p>
+<p>O <a href="https://pages.github.com">Github Pages</a> permite que
+você construa websites simples a partir de seu repositório Github. Para
+ativar esse recurso, acesse a guia <strong>Settings</strong> em
+<code>https://github.com/SEU_USUÁRIO/SEU_REPOSITORIO</code>. Em seguida,
+clique no menu <strong>Pages</strong> na barra de navegação do lado
+esquerdo.</p>
+<center>
+<img src="images/github_pages1.png" style="width:100%"/> <br><br>
+</center>
+<p>No botão abaixo de <strong>Source</strong>, escolha o
+<strong>Branch</strong> <strong>main</strong> e folder
+<strong>/(root)</strong>:</p>
+<center>
+<img src="images/github_pages2.png" style="width:100%"/> <br><br>
+</center>
+<p>Click <strong>Save</strong>. You should now see that the site is
+“ready to be published”:</p>
+<center>
+<img src="images/github_pages2a.png" style="width:100%"/> <br><br>
+</center>
+<p>Olhando no menu principal do repositório, você poderá confirmar que o
+repositório está ativo na forma de website</p>
+<center>
+<img src="images/github_pages3.png" style="width:50%"/> <br><br>
+</center>
+<p>E também poderá acessar a página no endereço:</p>
+<ul>
+<li><code>https://SEU_USUÁRIO.github.io/SEU_REPOSITORIO</code></li>
+</ul>
+<p>Repare que o URL é apenas uma reordenação do endereço do repositório
+no Github:</p>
+<ul>
+<li><code>https://github.com/SEU_USUÁRIO/SEU_REPOSITORIO</code></li>
+</ul>
+<p>Para ficar mais fácil de encontrarem o website, clique na ícone de
+engrenagem em frente a palavra <strong>About</strong> no menu do lado
+direito e uma janela irá abrir:</p>
+<center>
+<img src="images/github_pages4.png" style="width:50%"/> <br><br>
+</center>
+<p>O endereço do website irá aparecer em cinza, mas você terá que
+digitar ou copiar e colar o endereço neste campo. Basta salvar e já
+poderá ver o endereço na página principal do repositório.</p>
+<p>Ao final, você deve ver algo como isso:</p>
+<center>
+<img src="images/github_pages5.png" style="width:50%"/> <br><br>
+</center>
 <hr />
 </div>
 </div>
