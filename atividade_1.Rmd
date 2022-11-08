@@ -135,7 +135,6 @@ maps::map("world", xlim = c(-150, 40))
 box()
 plot(borb, col = colors, lty = 0, add = T)
 
-
 ```
 
 Cada cor se refere à um polígono da área de distribuição de cada espécie.
