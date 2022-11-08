@@ -514,7 +514,8 @@ cole os seguintes códigos em no script ou terminal.</p>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(letsR)</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maptools)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span></code></pre></div>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -550,7 +551,7 @@ receberá o arquivo depois de terminado o download. Para criar a pasta,
 fazer o download do arquivo, descomprimir e finalmente carrega-lo no R
 será preciso executar os seguintes códigos.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criar pasta</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="fu">file.path</span>(<span class="fu">getwd</span>(), <span class="st">&quot;/data&quot;</span>))</span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dir.create(file.path(getwd(), &quot;/data&quot;))</span></span></code></pre></div>
 </div>
 <div id="exemplo-baixando-dados-da-iucn-caso-precisem"
 class="section level3" number="0.2.3">
@@ -587,7 +588,7 @@ espécies peixes borboletas</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importanto o shapefile</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>borb <span class="ot">&lt;-</span> <span class="fu">readOGR</span>(<span class="at">dsn =</span> <span class="st">&quot;data/Chaetodontidae_NewWorld.shp&quot;</span>)</span></code></pre></div>
 <pre><code>## OGR data source with driver: ESRI Shapefile 
-## Source: &quot;/Users/cesarcordeiro/git/macroecologia_02-2022_UENF/data/Chaetodontidae_NewWorld.shp&quot;, layer: &quot;Chaetodontidae_NewWorld&quot;
+## Source: &quot;C:\Users\costao\Documents\git\macroecologia-UENF_2022\data\Chaetodontidae_NewWorld.shp&quot;, layer: &quot;Chaetodontidae_NewWorld&quot;
 ## with 29 features
 ## It has 27 fields
 ## Integer64 fields read as strings:  id_no</code></pre>
@@ -648,7 +649,7 @@ outros polígonos.</p>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> colors[position]</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot call</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="st">&quot;world&quot;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">150</span>, <span class="dv">40</span>))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>maps<span class="sc">::</span><span class="fu">map</span>(<span class="st">&quot;world&quot;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">150</span>, <span class="dv">40</span>))</span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(borb, <span class="at">col =</span> colors, <span class="at">lty =</span> <span class="dv">0</span>, <span class="at">add =</span> T)</span></code></pre></div>
 <p><img src="atividade_1_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
