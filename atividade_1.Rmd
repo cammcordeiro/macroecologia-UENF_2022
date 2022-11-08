@@ -18,8 +18,6 @@ text-align: justify}
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
-library(tidyverse)
-
 ```
 
 # Atividade 1 {.unnumbered}
@@ -54,6 +52,7 @@ library(letsR)
 library(maptools)
 library(maps)
 library(rgdal)
+library(tidyverse)
 
 ```
 ------------------------------------------------------------------------
@@ -71,7 +70,7 @@ Inicialmente, precisamos criar uma pasta no diretório de trabalho que receberá
 
 ```{r}
 # criar pasta
-dir.create(file.path(getwd(), "/data"))
+# dir.create(file.path(getwd(), "/data"))
 
 ```
 
@@ -132,7 +131,7 @@ position <- match(borb@data$binomial, unique(borb@data$binomial))
 colors <- colors[position]
 
 ## Plot call
-map("world", xlim = c(-150, 40))
+maps::map("world", xlim = c(-150, 40))
 box()
 plot(borb, col = colors, lty = 0, add = T)
 
