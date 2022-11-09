@@ -480,11 +480,30 @@ div.tocify {
 body {
 text-align: justify}
 </style>
-<div id="atividade-3" class="section level1 unnumbered">
-<h1 class="unnumbered">Atividade 3</h1>
+<div id="atividade-3---parte-1" class="section level1 unnumbered">
+<h1 class="unnumbered">Atividade 3 - Parte 1</h1>
 <p><br></br></p>
-<div id="dados-de-peixes-recifais" class="section level2" number="0.1">
-<h2><span class="header-section-number">3.1</span> Dados de peixes
+<div id="redes-de-interações" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Redes de
+interações</h2>
+<p>A análise de redes ecológicas é uma metodologia para analisar
+holisticamente as interações ecológicas e outros. Estes modelos,
+normalmente, representam uma partição do ambiente de estudo e devem ser
+minimamente detalhadas. Assim, a construção das redes visa incluir todos
+os compartimentos e interações ecológicas de interesse e, a análise dos
+componentes da rede, determina as relações gerais com métricas globais,
+mas também permite avaliar individualmente o importância de seus
+componentes (Prouxl et al. 2005).</p>
+<p>Os dados e código necessários a execução desta atividade estão
+disponíveis no Classroom da disciplina.</p>
+<p><br></br></p>
+</div>
+</div>
+<div id="atividade-3---parte-2" class="section level1 unnumbered">
+<h1 class="unnumbered">Atividade 3 - Parte 2</h1>
+<p><br></br></p>
+<div id="dados-de-peixes-recifais" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Dados de peixes
 recifais</h2>
 <p>Para a atividade 4, partiremos dos primeiros passos da atividade 1,
 mas com algumas modificações na escala do mapa (global desta vez). Para
@@ -497,7 +516,7 @@ tal, bastar realizar estes primeiros passos rodando este
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Importanto o shapefile</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>borb <span class="ot">&lt;-</span> rgdal<span class="sc">::</span><span class="fu">readOGR</span>(<span class="at">dsn =</span> <span class="st">&quot;data/Chaetodontidae_NewWorld.shp&quot;</span>)</span></code></pre></div>
 <pre><code>## OGR data source with driver: ESRI Shapefile 
-## Source: &quot;/Users/cesarcordeiro/git/macroecologia-UENF_2022/data/Chaetodontidae_NewWorld.shp&quot;, layer: &quot;Chaetodontidae_NewWorld&quot;
+## Source: &quot;C:\Users\costao\Documents\git\macroecologia-UENF_2022\data\Chaetodontidae_NewWorld.shp&quot;, layer: &quot;Chaetodontidae_NewWorld&quot;
 ## with 29 features
 ## It has 27 fields
 ## Integer64 fields read as strings:  id_no</code></pre>
@@ -513,8 +532,8 @@ tal, bastar realizar estes primeiros passos rodando este
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code></pre></div>
 <div id="barreiras-biogeograficas" class="section level3"
-number="0.1.1">
-<h3><span class="header-section-number">3.1.1</span> Barreiras
+number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Barreiras
 biogeograficas</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#criar uma tabela com dados de presenca/ausencia das especies</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pa <span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(borb_maps<span class="sc">$</span>Presence_and_Absence_Matrix[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)])</span>
@@ -544,19 +563,19 @@ biogeograficas</h3>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>points <span class="ot">&lt;-</span> vegan<span class="sc">::</span><span class="fu">metaMDS</span>(beta.sim, <span class="at">k=</span><span class="dv">2</span>, <span class="at">autotransform=</span>F, <span class="at">trymax=</span><span class="dv">5</span>)<span class="sc">$</span>points</span></code></pre></div>
 <pre><code>## Run 0 stress 0.000621963 
-## Run 1 stress 0.0003799572 
+## Run 1 stress 0.0003885992 
 ## ... New best solution
-## ... Procrustes: rmse 0.04672703  max resid 0.1716446 
-## Run 2 stress 0.0005227159 
-## ... Procrustes: rmse 0.04425947  max resid 0.1838224 
-## Run 3 stress 0.0004978659 
-## ... Procrustes: rmse 0.03864805  max resid 0.2807707 
-## Run 4 stress 0.0006408195 
-## ... Procrustes: rmse 0.05039006  max resid 0.4413699 
-## Run 5 stress 0.0004080444 
-## ... Procrustes: rmse 0.05120458  max resid 0.4908674 
+## ... Procrustes: rmse 0.04991498  max resid 0.1113541 
+## Run 2 stress 0.001094173 
+## Run 3 stress 0.0004328997 
+## ... Procrustes: rmse 0.05104042  max resid 0.4939086 
+## Run 4 stress 0.0005443188 
+## ... Procrustes: rmse 0.05107915  max resid 0.4481473 
+## Run 5 stress 0.0004147922 
+## ... Procrustes: rmse 0.04857868  max resid 0.3375494 
 ## *** No convergence -- monoMDS stopping criteria:
-##      5: scale factor of the gradient &lt; sfgrmin</code></pre>
+##      2: no. of iterations &gt;= maxit
+##      3: scale factor of the gradient &lt; sfgrmin</code></pre>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Atribuindo cores de acordo com a composicao de especies (escala RedGreenBlue)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(recluster)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -577,12 +596,17 @@ biogeograficas</h3>
 <p><img src="atividade_3_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 </div>
-<div id="bibliography" class="section level2" number="0.2">
-<h2><span class="header-section-number">3.2</span> Bibliography</h2>
+<div id="bibliography" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Bibliography</h2>
+<p>Autores: Murilo S. Dias, Juan P. Quimbayo, Thiago Mendes, Mariana
+Bender, Augusto Flores. Adaptado por: Cesar Cordeiro</p>
 <ul>
-<li>Vilela B, Villalobos F (2015) letsR: A new r package for data
+<li><p>Vilela B, Villalobos F (2015) letsR: A new r package for data
 handling and analysis in macroecology. Methods in Ecology and Evolution,
-6, 1229–1234.</li>
+6, 1229–1234.</p></li>
+<li><p>Proulx SR, Promislow DEL, Phillips PC (2005) Network thinking in
+ecology and evolution. Trends in Ecology and Evolution, 20 (6): 345-353.
+DOI: 10.1016/j.tree.2005.04.004</p></li>
 </ul>
 </div>
 </div>

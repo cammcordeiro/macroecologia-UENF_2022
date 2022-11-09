@@ -19,7 +19,21 @@ text-align: justify}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-# Atividade 3 {.unnumbered}
+# Atividade 3 - Parte 1{.unnumbered}
+
+<br></br>
+
+## Redes de interações
+
+A análise de redes ecológicas é uma metodologia para analisar holisticamente as interações ecológicas e outros. Estes modelos, normalmente, representam uma partição do ambiente de estudo e devem ser minimamente detalhadas. Assim, a construção das redes visa incluir todos os compartimentos e interações ecológicas de interesse e, a análise dos componentes da rede, determina as relações gerais com métricas globais, mas também permite avaliar individualmente o importância de seus componentes (Prouxl et al. 2005).
+
+Os dados e código necessários a execução desta atividade estão disponíveis no Classroom da disciplina.
+
+<br></br>
+
+
+
+# Atividade 3 - Parte 2{.unnumbered}
 
 <br></br>
 
@@ -113,3 +127,6 @@ plot(mapa_comp,add=TRUE,axis=FALSE)
 Autores: Murilo S. Dias, Juan P. Quimbayo, Thiago Mendes, Mariana Bender, Augusto Flores. Adaptado por: Cesar Cordeiro
 
 -   Vilela B, Villalobos F (2015) letsR: A new r package for data handling and analysis in macroecology. Methods in Ecology and Evolution, 6, 1229–1234.
+
+-   Proulx SR, Promislow DEL, Phillips PC (2005) Network thinking in ecology and evolution. Trends in Ecology and Evolution, 20 (6): 345-353. DOI: 10.1016/j.tree.2005.04.004
+
