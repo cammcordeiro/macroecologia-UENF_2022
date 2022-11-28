@@ -47,16 +47,15 @@ Todo o material das aulas pode ser acessados no cronograma baixo clicando-se os 
 
 **Aula 4 - Segunda-feira (28/11 => 8:30 – 12:30 / 14:00 - 18:00)**
 
+-   **CANCELADA**
+
+**Aula 5 - Terça-feira (29/11 => 8:30 – 12:30 / 14:00 - 18:00)**
+
 -   Barreiras biogeográficas
 
 -   Centros de diversidade e endemismo
 
-
-**Aula 5 - Terça-feira (29/11 => 8:30 – 12:30 / 14:00 - 18:00)**
-
 -   Diversidade filogenética e funcional
-
--   Exercícios de cálculo de indicadores de diversidade funcional
 
 -   Seminário 3
 
@@ -65,9 +64,11 @@ Todo o material das aulas pode ser acessados no cronograma baixo clicando-se os 
 
 -   Macroecologia e conservação
 
--   Seminário 4
+-   Exercícios de cálculo de indicadores de diversidade funcional
 
 -   Exercícios de checagem de qualidade, padronização e roteiro reprodutível de aquisição e análise de dados macroecológicos
+
+-   Seminário 4
 
 -   Considerações finais da disciplina
 
