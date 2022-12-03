@@ -36,8 +36,6 @@ borb <- rgdal::readOGR(dsn = "data/Chaetodontidae_NewWorld.shp")
 
 # Criando raster
 borb_maps <- lets.presab(borb, resol = 3, 
-                         xmn = borb@bbox[1], xmx = borb@bbox[3], # America range
-                         ymn = borb@bbox[2], ymx = borb@bbox[4], # America range
                          cover = 0.01,
                          remove.cells = FALSE)
 
@@ -214,6 +212,156 @@ plot(borb2, main = "Mean Pairwise Distance")
 
 Que padrões vocês enxergam? Eles são os mesmos entre os indices? Quais são os mecanismos que explicam estes padrões?
 <br></br>
+
+
+## Exercício de métricas funcionais
+<br></br>
+
+### Dados
+
+Para este exercício vamos utilizar duas planilhas que estão disponíveis no drive da disciplina. O primeiro deles é uma lista de ocorrência de espécies de peixes-borboleta (`chaet_dist.csv`), e o segundo é uma lista de atributos de peixes recifais (`trait.txt`).
+```{r}
+trait <- read.table("data/trait.txt", header=T)
+occur <- read.csv("data/chaet_dist.csv", sep=";")
+```
+
+
+<br></br>
+
+### Organizando os dados
+
+O passo inicial é selecionar apenas os atributos das espécies que estão presentes na lista de ocorrência, pois a lista de atributos engloba muitas outras espécies.Em seguida, vamos checar as tabelas para garantir que ambas tenham os nomes de espécies exatamente iguais.
+
+```{r}
+
+# subset apenas com os dados de Chaetodontidae
+chaet_trait <- droplevels(subset(trait, Family == "Chaetodontidae")) 
+
+# eliminando os dados NA
+chaet_trait <- na.omit(chaet_trait) 
+```
+<br></br>
+
+
+Tudo estando correto, podemos fazer uma compatibilização das espécies presentes com os atributos para termos estar informações na mesma planilha.
+
+```{r}
+
+# subset apenas com os dados de Chaetodontidae
+chaet_trait <- droplevels(subset(trait, Family == "Chaetodontidae")) 
+
+# eliminando os dados NA
+chaet_trait <- na.omit(chaet_trait) 
+
+# selecionando as ocorrências das spp em cada uma das quatro bacias oceânicas
+chaet_trait$Atl <- occur$Atlantic[match(chaet_trait$Genus_and_species, occur$Genus_and_species)] 
+chaet_trait$Ind <- occur$Indian[match(chaet_trait$Genus_and_species, occur$Genus_and_species)]
+chaet_trait$TEP <- occur$TEP[match(chaet_trait$Genus_and_species, occur$Genus_and_species)]
+chaet_trait$Pac <- occur$Pacific[match(chaet_trait$Genus_and_species, occur$Genus_and_species)]
+
+```
+<br></br>
+
+A partir daqui, podemos utilizar os atributos para calcular as entidades funcionais presentes e as distâncias entre elas, utilizando a distância de Gower.
+
+```{r}
+
+# install.packages("FD")
+
+library(FD)
+
+# cálculo da dissimilaridade de Gower baseado nos atributos das espécies
+dist <- gowdis(chaet_trait[,14:19])
+
+#cálculo da análise de componentes principais
+pcoa <- cmdscale(dist, k = 4) 
+
+# dataframe juntando todas as informações de atributos, ocorrências e coordenadas na pcoa para todas as espécies
+chaet_info <- cbind(pcoa, chaet_trait) 
+
+```
+<br></br>
+
+Com a matriz de distâncias pronta, é possível avaliar graficamente o espaço funcional total e a contribuição das assembleias de peixes-borboleta em cada uma das províncias indicadas na planilha de ocorrências (Pac = Pacífico, TEP = Pacífico Tropical Leste, Atlan = Atlântico, Indi = Índico).
+
+```{r}
+par(mfrow = c(2,2)) #divide a área de plot em quatro
+
+#plots com:
+#[1] espaço funcional global
+#[2] o cálculo do número de spp por região
+#[3] o polígono convexo para todas as entidades funcionais do mundo
+#[4] o polígono convexo apenas para as spp que ocorrem em uma das regiões
+
+plot(pcoa, xlab = "PC1", ylab = "PC2", main = "Atlantic")
+legend("topright", legend = sum(chaet_info$Atl), bty = "n")
+ordihull(pcoa, groups = chaet_info$Size_class <= 1, draw = "polygon", col = "grey", alpha=50)
+ordihull(pcoa, groups= chaet_info$Atl==1, col= "orange", draw="polygon", show.group=TRUE, alpha=50)
+
+plot(pcoa, xlab = "PC1", ylab = "PC2", main = "TEP")
+legend("topright", legend = sum(chaet_info$TEP), bty = "n")
+ordihull(pcoa, groups = chaet_info$Size_class <= 1, draw = "polygon", col = "grey", alpha=50)
+ordihull(pcoa, groups= chaet_info$TEP==1, col= "green", draw="polygon", show.group=TRUE, alpha=50)
+
+plot(pcoa, xlab = "PC1", ylab = "PC2", main = "Indian")
+legend("topright", legend = sum(chaet_info$Ind), bty = "n")
+ordihull(pcoa, groups = chaet_info$Size_class <= 1, draw = "polygon", col = "grey", alpha=50)
+ordihull(pcoa, groups= chaet_info$Ind==1, col= "blue", draw="polygon", show.group=TRUE, alpha=50)
+
+plot(pcoa, xlab = "PC1", ylab = "PC2", main = "Pacific")
+legend("topright", legend = sum(chaet_info$Pac), bty = "n")
+ordihull(pcoa, groups = chaet_info$Size_class <= 1, draw = "polygon", col = "grey", alpha=50)
+ordihull(pcoa, groups= chaet_info$Pac==1, col= "red", draw="polygon", show.group=TRUE, alpha=50)
+
+```
+<br></br>
+
+
+### Métricas funcionais
+
+Utilizando um exemplo do pacote *FD*, vamos dar uma olhada em como podemos extrair métricas funcionais.
+
+Para o cálculo são necessárias duas matrizes:
+-   uma com as espécies nas linhas e os atributos nas colunas. Os atributos devem ser numéricos ou fatores.
+-   uma com as assembleias ou comunidades ou amostras nas linhas e as espécies nas colunas.
+<br></br>
+
+**É muito importante que os nomes das espécies sejam exatamente os mesmos nas duas matrizes. Como os nomes serão colocados como nomes das linhas na primeira matriz, estas não podem estar separadas por espaço ou caracteres especiais (use "_", "." ou "-").**
+
+```{r}
+# cálculo dos índices funcionais
+ 
+# [1] traits - spp (linhas) x traits (colunas) - aqui os traits 
+# [2] ocorrencia - regiões (linhas) x spp (colunas)
+
+traits <- chaet_info[,18:23]
+rownames(traits) <- chaet_info$Genus_and_species
+traits$Diet_2012 <- as.factor(traits$Diet_2012) # transformar caracteres em fatores
+traits$Home_range <- as.factor(traits$Home_range)
+traits$Diet_2012 <- as.factor(traits$Diet_2012)
+traits$Activity <- as.factor(traits$Activity)
+traits$Schooling <- as.factor(traits$Schooling)
+traits$Level <- as.factor(traits$Level)
+
+ocorrencias <- chaet_info[,24:27]
+rownames(ocorrencias) <- chaet_info$Genus_and_species
+```
+<br></br>
+
+
+Em seguida, podemos aplicar a função `dbFD` para calcular os índices funcionais padrão fornecidos pela função.
+```{r}
+indices <- dbFD(traits, t(ocorrencias))
+indices
+```
+
+O arquivo de saída da função também é no formato de lista, para acessá-lo, basta utilizar o símbolo de `$` entre o nome do arquivo e a matriz que deverá ser avaliada ou utilizada.
+
+```{r}
+indices$FDiv
+```
+<br></br>
+
 
 ## Referências
 -   Ives AR, Helmus MR (2010). Phylogenetic metrics of community similarity. The American
